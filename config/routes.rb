@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'outlooks#index'
-  resources :outlooks
+  root 'about_posts#index'
+  resources :about_posts
   resources :offers
 end
