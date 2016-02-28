@@ -1,0 +1,6 @@
+<%= form_for @about_post do |f| %>
+  <%= f.label :title, "Заглавие" %>
+  <%= f.text_field :title %><br />
+  <%= f.label :body, "Съдържание" %>
+  <%= f.text_area :body %><br />
+<% end %>
