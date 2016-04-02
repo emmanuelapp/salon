@@ -15,3 +15,5 @@
 /log/*
 !/log/.keep
 /tmp
+# Ignore paperclip file uploads in development
+public/system/*
