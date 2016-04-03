@@ -1,4 +1,4 @@
-<%= form_for @about_post do |f| %>
+<%= form_for @about_post, url: front_about_posts_path do |f| %>
   <%= f.label :title, "Заглавие" %>
   <%= f.text_field :title %><br />
   <%= f.label :body, "Съдържание" %>

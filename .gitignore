@@ -17,3 +17,5 @@
 /tmp
 # Ignore paperclip file uploads in development
 public/system/*
+
+public/assets/*

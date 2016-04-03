@@ -1,0 +1,8 @@
+<div class='row'>
+  <h3> Нашият екип </h3>
+  <% if @members.empty? %>
+    <h5> Тази страница все още не е попълнена </h5>
+  <% else %>
+    <%= render @members %>
+  <% end %>
+</div>
