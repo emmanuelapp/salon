@@ -1,5 +1,5 @@
 class AboutPostsController < ApplicationController
-  before_action :find_post, only: [:edit, :update]
+  before_action :find_post, only: [:edit, :update, :destroy]
 
   def index
     @about_posts = AboutPost.all
@@ -31,6 +31,11 @@ class AboutPostsController < ApplicationController
   	  flash[:notice] = "Възникна грешка!!"
   	end
     redirect_to root_path
+  end
+
+  def destroy
+    @about_post.delete
+    redirect_to root_path, notice: "Post has been deleted"
   end
 
   private
