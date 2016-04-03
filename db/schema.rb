@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402151501) do
+ActiveRecord::Schema.define(version: 20160403111326) do
 
   create_table "about_posts", force: :cascade do |t|
     t.text     "body"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20160402151501) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description"
+    t.string   "name"
   end
 
 end
