@@ -1,7 +1,6 @@
 <div class='row'>
   <h4>Details about <%= @member.full_name %></h4>
-  <p>Profession: <%= @member.profession %></p>
-  <p>Description: <%= @member.description %></p>
-  <%= link_to 'Delete member', member_path(@member), method: :delete,
+  <%= render @member %>
+  <%= link_to 'Delete member', front_member_path(@member), method: :delete,
         data: { confirm: "Are you absolutely sure, that you want to remove #{@member.full_name} from the team?"} %>
 </div>

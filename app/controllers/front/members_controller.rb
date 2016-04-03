@@ -1,4 +1,4 @@
-class MembersController < ApplicationController
+class Front::MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
@@ -13,7 +13,7 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
     if(@member.save)
-      redirect_to members_path, notice: "Yay! You have added a new member to the team successfully! : )"
+      redirect_to front_members_path, notice: "Yay! You have added a new member to the team successfully! : )"
     else
       render :new
       flash[:notice] =  "Ouch... something went terribly wrong! : ("
@@ -28,7 +28,7 @@ class MembersController < ApplicationController
 
   def update
     if @member.update(member_params)
-      redirect_to members_path, notice: "Great! You have updated #{@member.full_name}\'s profile successfully!"
+      redirect_to front_members_path, notice: "Great! You have updated #{@member.full_name}\'s profile successfully!"
     else
       render :edit, notice: "Ouch... something went terribly wrong! : ("
     end
@@ -36,7 +36,7 @@ class MembersController < ApplicationController
 
   def destroy
     @member.delete
-    redirect_to members_path, notice: "#{@member.full_name} has been removed from the database!"
+    redirect_to front_members_path, notice: "#{@member.full_name} has been removed from the database!"
   end
 
   private

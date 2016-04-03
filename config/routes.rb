@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  root 'about_posts#index'
-  resources :about_posts
-  resources :offers
-  resources :members
+  root 'front/about_posts#index'
+
+  namespace :front do
+    resources :members
+    resources :about_posts
+    resources :offers
+  end
 end

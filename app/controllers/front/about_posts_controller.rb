@@ -1,4 +1,4 @@
-class AboutPostsController < ApplicationController
+class Front::AboutPostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :destroy]
 
   def index
