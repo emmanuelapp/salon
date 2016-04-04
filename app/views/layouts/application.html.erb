@@ -12,19 +12,45 @@
   </head>
 
   <body>
-    <div class='row'>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
+    <div id="siteContainer">
+      <div id="siteNavStickyContainer" data-sticky-container>
+        <div id="siteNavStickyWrap" class="sticky" data-sticky data-sticky-on="small" data-anchor="siteContainer" data-margin-top="0">
+          <div id="siteNavToggler" class="title-bar" data-responsive-toggle="siteNav" data-hide-for="medium">
+            <!-- title-bar / toggler code  -->
+            <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="medium">
+              <button class="menu-icon" type="button" data-toggle></button>
+                <div class="title-bar-title">Menu</div>
+            </div>
+          </div>
 
-    <ul>
-      <li><%= link_to "За нас", front_about_posts_path %></li>
-      <li><%= link_to "Услуги", front_offers_path %></li>
-      <!--li> Запиши час </li-->
-      <!--li> Пиши ни </li-->
-      <li> Контакти </li>
-      <li><%= link_to "Екип", front_members_path %></li>
-    </ul>
+          <div id="siteNav" class="top-bar">
+            <!-- top-bar code -->
+            <div class="top-bar" id="main-menu">
+              <div class="top-bar-left">
+                <ul class="dropdown menu" data-dropdown-menu>
+                  <li class="menu-text"> KAVA </li>
+                </ul>
+              </div>
+
+              <div class="top-bar-right">
+                <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
+                  <li><%= link_to "За нас", front_about_posts_path %></li>
+                  <li><%= link_to "Услуги", front_offers_path %></li>
+                  <!--li> Запиши час </li-->
+                  <!--li> Пиши ни </li-->
+                  <li><%= link_to "Контакти", "#" %></li>
+                  <li><%= link_to "Екип", front_members_path %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='row'>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
 
     <%= yield %>
 

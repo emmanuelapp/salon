@@ -6,6 +6,10 @@
 </div>
 
 <div class='row'>
-  <h1> За нас </h1>
-  <%= render @about_posts %>
+  <h3> За нас </h3>
+  <% if @about_posts.empty? %>
+    <h5> Тази страница все още не е попълнена </h5>
+  <% else %>
+    <%= render @about_posts %>
+  <% end %>
 </div>
