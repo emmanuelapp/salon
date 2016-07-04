@@ -1,4 +1,4 @@
-class Front::AboutPostsController < ApplicationController
+class Front::ParagraphsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :destroy]
 
   def index
@@ -10,7 +10,7 @@ class Front::AboutPostsController < ApplicationController
   end
 
   def create
-    @about_post = AboutPost.new(about_post_params)
+    @about_post = AboutPost.new(paragraph_params)
 
     if @about_post.save
       flash[:notice] = "Публикацията е успешно запаметена!"
@@ -25,7 +25,7 @@ class Front::AboutPostsController < ApplicationController
   end
 
   def update
-  	if @about_post.update(about_post_params)
+  	if @about_post.update(paragraph_params)
   	  flash[:notice] = "Успешна редакция на публикацията"
   	else
   	  flash[:notice] = "Възникна грешка!!"
@@ -44,7 +44,7 @@ class Front::AboutPostsController < ApplicationController
   	@about_post = AboutPost.find(params[:id])
   end
 
-  def about_post_params
+  def paragraph_params
   	params.require(:about_post).permit(:title, :body)
   end
 end
