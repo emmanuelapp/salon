@@ -1,4 +1,4 @@
-class Dashboard::ParagraphsController < ApplicationController
+class Dashboard::OffersController < ApplicationController
   def index
     render text: "TODO: index"
   end
