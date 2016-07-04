@@ -1,4 +1,5 @@
 class Dashboard::MembersController < ApplicationController
+  layout 'dashboard'
   before_action :set_member, only: [:update, :edit]
 
   def index
