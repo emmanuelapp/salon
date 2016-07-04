@@ -1,5 +1,5 @@
 class Front::ParagraphsController < ApplicationController
   def index
-    @about_posts = AboutPost.all
+    @paragraphs = Paragraph.all
   end
 end

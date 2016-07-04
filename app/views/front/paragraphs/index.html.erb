@@ -7,9 +7,9 @@
 
 <div class='row'>
   <h3> За нас </h3>
-  <% if @about_posts.empty? %>
+  <% if @paragraphs.empty? %>
     <h5> Тази страница все още не е попълнена </h5>
   <% else %>
-    <%= render @about_posts %>
+    <%= render @paragraphs %>
   <% end %>
 </div>

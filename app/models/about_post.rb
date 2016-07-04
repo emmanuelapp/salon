@@ -1,2 +1,0 @@
-class AboutPost < ApplicationRecord
-end
