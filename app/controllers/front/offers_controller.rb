@@ -1,5 +1,7 @@
-class Front::OffersController < ApplicationController
-  def index
-    @offers = Offer.all
+module Front
+  class OffersController < ApplicationController
+    def index
+      @offers = Offer.all
+    end
   end
 end
