@@ -3,6 +3,8 @@
   <% if @offers.empty? %>
     <h5> Тази страница все още не е попълнена </h5>
   <% else %>
-    <%= render @offers %>
+    <ul class="accordion" data-accordion data-allow-all-closed="true">
+      <%= render @offers %>
+    </ul>
   <% end %>
 </div>
