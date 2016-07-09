@@ -1,1 +1,4 @@
-<%= @members.to_json %>
+<div class='row'>
+  <%= link_to 'Добави ново лице към екипа', new_dashboard_member_path, class: 'warning button' %>
+</div>
+<%= render @members %>

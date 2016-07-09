@@ -1,0 +1,15 @@
+<div class='row'>
+
+  <div class='column large-4'>
+    <p><b>Създадено на:</b><%= offer.created_at.to_formatted_s(:long_ordinal) %></p>
+    <p><b>Последна промяна на:</b><%= offer.updated_at.to_formatted_s(:long_ordinal) %></p>
+    <%= link_to "Редактирай", "#", class: 'success button' %>
+    <%= link_to "Премахни", "#", class: 'alert button' %>
+  </div>
+
+  <div class='column large-10'>
+    <h4><%= offer.name %></h4>
+    <%= offer.description %>
+  </div>
+
+</div>

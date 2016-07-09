@@ -1,0 +1,14 @@
+<div class='row'>
+  <div class='column large-6'>
+    <h4><%= member.first_name %></h4>
+    <h4><%= member.last_name %></h4>
+    <h5><%= member.profession %></h5>
+    <p><b>Създадено на:</b> <%= member.created_at.to_formatted_s(:long_ordinal) %></p>
+    <p><b>Обновено на:</b> <%= member.updated_at.to_formatted_s(:long_ordinal) %></p>
+    <%= link_to "Редактирай", edit_dashboard_member_path(member), class: 'success button' %>
+    <%= link_to "Премахни", "#", class: 'alert button' %>
+  </div>
+  <div class='column large-6'>
+    <%= member.description %><hr>
+  </div>
+</div>

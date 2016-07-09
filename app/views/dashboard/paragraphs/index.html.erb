@@ -1,1 +1,4 @@
-<%= @paragraphs.to_json %>
+<div class='row'>
+  <%= link_to 'Добави нова публикация', new_dashboard_paragraph_path, class: 'warning button' %>
+</div>
+<%= render @paragraphs %>
