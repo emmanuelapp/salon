@@ -12,7 +12,6 @@
   </head>
 
   <body>
-
     <div data-sticky-container>
       <div class="title-bar sticky" data-sticky data-options="marginTop:0;" style="width:100%">
 
@@ -31,12 +30,9 @@
     </div>
 
     <div class='row'>
+      <%= image_tag 'logo_small.png', class: 'center' %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-    </div>
-
-    <div class='row'>
-      <%= image_tag 'logo.jpg' %>
     </div>
 
     <%= yield %>
