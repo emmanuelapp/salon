@@ -1,7 +1,7 @@
 module Dashboard
   class OffersController < ApplicationController
     layout 'dashboard'
-    before_action :set_offer, only: [:update, :edit]
+    before_action :set_offer, only: [:update, :edit, :destroy]
 
     def index
       @offers = Offer.all
@@ -33,6 +33,12 @@ module Dashboard
         redirect_to dashboard_offers_path
         flash[:notice] = 'Something went wrong while trying to update...'
       end
+    end
+
+    def destroy
+      @offer.delete
+      redirect_to dashboard_offers_path
+      flash[:notice] = 'Offer has been successfully deleted from the database'
     end
 
     private

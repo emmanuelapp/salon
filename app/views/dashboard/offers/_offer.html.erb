@@ -4,7 +4,7 @@
     <p><b>Създадено на:</b><%= offer.created_at.to_formatted_s(:long_ordinal) %></p>
     <p><b>Последна промяна на:</b><%= offer.updated_at.to_formatted_s(:long_ordinal) %></p>
     <%= link_to "Редактирай", "#", class: 'success button' %>
-    <%= link_to "Премахни", "#", class: 'alert button' %>
+    <%= link_to "Премахни", dashboard_offer_path(offer), method: :delete, data: { confirm: 'Are you sure?' } , class: 'alert button' %>
   </div>
 
   <div class='column large-10'>
