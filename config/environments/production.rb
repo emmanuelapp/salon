@@ -7,6 +7,10 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   config.assets.compile = false
   config.assets.digest = true
+
+  config.assets.css_compressor = :yui
+  config.assets.js_compressor = :uglifier
+
   config.log_level = :debug
   config.i18n.fallbacks = true
   config.active_support.deprecation = :notify
