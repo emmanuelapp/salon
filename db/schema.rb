@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704181843) do
+ActiveRecord::Schema.define(version: 20160709191902) do
 
   create_table "about_posts", force: :cascade do |t|
     t.text     "body"
@@ -47,8 +47,10 @@ ActiveRecord::Schema.define(version: 20160704181843) do
   end
 
   create_table "paragraphs", force: :cascade do |t|
-    t.string "title"
-    t.text   "body"
+    t.text     "body"
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

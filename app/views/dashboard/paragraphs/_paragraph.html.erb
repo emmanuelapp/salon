@@ -10,6 +10,8 @@
     <div class='column large-4'>
       <%= link_to "Редактирай", edit_dashboard_paragraph_path(paragraph), class: 'success button' %>
       <%= link_to "Премахни", dashboard_paragraph_path(paragraph), method: :delete, data: { confirm: 'Are you sure?' } , class: 'alert button' %>
+      <p><b>Създадено на:</b><%= paragraph.created_at.to_formatted_s(:long_ordinal) %></p>
+      <p><b>Последна промяна на:</b><%= paragraph.updated_at.to_formatted_s(:long_ordinal) %></p>
     </div>
   </div>
 </div>

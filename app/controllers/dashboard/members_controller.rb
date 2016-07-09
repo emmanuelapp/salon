@@ -1,7 +1,7 @@
 module Dashboard
   class MembersController < ApplicationController
     layout 'dashboard'
-    before_action :set_member, only: [:update, :edit]
+    before_action :set_member, only: [:update, :edit, :destroy]
 
     def index
       @members = Member.all
@@ -33,6 +33,12 @@ module Dashboard
         redirect_to dashboard_members_path
         flash[:notice] = 'Something went wrong while trying to update...'
       end
+    end
+
+    def destroy
+      @member.delete
+      redirect_to dashboard_members_path
+      flash[:notice] = 'Member has been successfully deleted from the database'
     end
 
     private

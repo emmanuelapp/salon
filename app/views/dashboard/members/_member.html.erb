@@ -6,7 +6,7 @@
     <p><b>Създадено на:</b> <%= member.created_at.to_formatted_s(:long_ordinal) %></p>
     <p><b>Обновено на:</b> <%= member.updated_at.to_formatted_s(:long_ordinal) %></p>
     <%= link_to "Редактирай", edit_dashboard_member_path(member), class: 'success button' %>
-    <%= link_to "Премахни", "#", class: 'alert button' %>
+    <%= link_to "Премахни", dashboard_member_path(member), method: :delete, data: { confirm: 'Are you sure?' } , class: 'alert button' %>
   </div>
   <div class='column large-6'>
     <%= member.description %><hr>
