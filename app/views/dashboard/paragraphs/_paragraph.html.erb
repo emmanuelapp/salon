@@ -9,7 +9,7 @@
 
     <div class='column large-4'>
       <%= link_to "Редактирай", edit_dashboard_paragraph_path(paragraph), class: 'success button' %>
-      <%= link_to "Премахни", "#", class: 'alert button' %>
+      <%= link_to "Премахни", dashboard_paragraph_path(paragraph), method: :delete, data: { confirm: 'Are you sure?' } , class: 'alert button' %>
     </div>
   </div>
 </div>

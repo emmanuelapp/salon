@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   end
 
   namespace :dashboard do
-    resources :members, only: [:index, :new, :create, :edit, :update]
-    resources :offers, only: [:index, :new, :create, :edit, :update]
-    resources :paragraphs, only: [:index, :new, :create, :edit, :update]
+    resources :members
+    resources :offers
+    resources :paragraphs
   end
 end
