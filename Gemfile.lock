@@ -220,7 +220,7 @@ DEPENDENCIES
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
-  paperclip (~> 5.0.0.beta1)
+  paperclip (~> 5.0.0)
   puma
   rails (~> 5.0.0)
   react-rails

@@ -12,13 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation
-//= require turbolinks
 //= require react
 //= require react_ujs
 //= require components
+//= require foundation
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
-//= require foundation
-$(document).foundation();
+$(function() {
+ $(document).foundation();
+ $(window).trigger('load.zf.sticky');
+});
+
+//= require turbolinks

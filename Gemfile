@@ -12,7 +12,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
-gem 'paperclip', '~> 5.0.0.beta1'
+gem 'paperclip', '~> 5.0.0'
 gem 'react-rails'
 
 group :development, :test do

@@ -1,4 +1,12 @@
-<%= image_tag member.avatar(:medium) %>
-<h5><%= member.full_name %></h5>
-<h6>Position: <%= member.profession %></h6>
-<%= member.description %>
+<div class="media-object">
+  <div class="media-object-section">
+    <div class="thumbnail">
+      <%= image_tag member.avatar(:medium) %>
+    </div>
+  </div>
+  <div class="media-object-section">
+    <h4><%= member.full_name %></h4>
+    <h5><%= member.profession %></h5>
+    <p><%= member.description %></p>
+  </div>
+</div>

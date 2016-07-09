@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :front do
     resources :members, only: [:index]
-    resources :paragraphs, only: [:index]
+    resources :paragraphs, only: [:index], path: 'about'
     resources :offers, only: [:index]
   end
 
