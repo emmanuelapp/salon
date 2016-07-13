@@ -1,4 +1,5 @@
 module Dashboard
+  #:nodoc:
   class MembersController < ApplicationController
     layout 'dashboard'
     before_action :set_member, only: [:update, :edit, :destroy]
@@ -48,8 +49,14 @@ module Dashboard
     end
 
     def member_params
-      params.require(:member)
-            .permit(:first_name, :last_name, :profession, :description, :phone_number, :avatar)
+      params.require(:member).permit(
+        :first_name,
+        :last_name,
+        :profession,
+        :description,
+        :phone_number,
+        :avatar
+      )
     end
   end
 end
