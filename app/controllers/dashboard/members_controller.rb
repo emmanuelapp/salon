@@ -19,7 +19,8 @@ module Dashboard
         redirect_to dashboard_members_path
         flash[:notice] = 'Member created successfully! : )'
       else
-        redirect_to dashboard_members_path, 'Something went terribly wrong....'
+        render :new
+        flash[:error] = 'Something went terribly wrong....'
       end
     end
 
