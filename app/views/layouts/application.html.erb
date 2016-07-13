@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
     <title><%= content_for?(:title) ? yield(:title) : "Kava" %></title>
 
@@ -36,6 +37,31 @@
     </div>
 
     <%= yield %>
+
+    <footer class="footer">
+      <div class="row full-width">
+        <div class="small-12 medium-3 large-4 columns">
+          <a href='https://www.facebook.com/Health-and-Beauty-centur-KAVA-324285777780321/' target='_blank'><i class="fi-social-facebook"></i></a>
+        </div>
+        <div class="small-12 medium-3 large-4 columns">
+          <a href='https://bg.linkedin.com/in/joromir' target='_blank'><i class="fi-torso"></i></a>
+          <p>Created with love by: <a href='https://bg.linkedin.com/in/joromir' target='_blank'>Georgi N. Kostov - Joromir</a></p>
+        </div>
+        <div class="small-6 medium-3 large-2 columns">
+          <ul class="footer-links">
+            <li><h4>АДРЕС</h4></li>
+            <li>София</li>
+            <li>ул. "Люлин планина" 33</li>
+            <li>+359 893 454 666</li>
+          <ul>
+        </div>
+        <div class="small-6 medium-3 large-2 columns">
+          <!-- <ul class="footer-links"> -->
+            <!-- <li><a href='https://www.facebook.com/Health-and-Beauty-centur-KAVA-324285777780321/' target='_blank'><i class="fi-social-facebook"></i></a></li> -->
+          <!-- <ul> -->
+        </div>
+      </div>
+    </footer>
 
   </body>
 </html>

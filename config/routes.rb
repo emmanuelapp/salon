@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   end
 
   namespace :dashboard do
-    resources :members
-    resources :offers
-    resources :paragraphs
+    resources :members, except: [:show]
+    resources :offers, except: [:show]
+    resources :paragraphs, except: [:show]
   end
 end
