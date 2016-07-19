@@ -1,7 +1,6 @@
 module Dashboard
-  #:nodoc:
-  class MembersController < ApplicationController
-    layout 'dashboard'
+  # :nodoc:
+  class MembersController < DashboardController
     before_action :set_member, only: [:update, :edit, :destroy]
 
     def index

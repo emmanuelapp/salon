@@ -1,7 +1,6 @@
 module Dashboard
   # :nodoc:
-  class ParagraphsController < ApplicationController
-    layout 'dashboard'
+  class ParagraphsController < DashboardController
     before_action :set_paragraph, only: [:update, :edit, :destroy]
 
     def index
