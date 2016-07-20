@@ -1,6 +1,6 @@
 module Dashboard
   # :nodoc:
-  class OffersController < DashboardController
+  class OffersController < AdminController
     before_action :set_offer, only: [:update, :edit, :destroy]
 
     def index

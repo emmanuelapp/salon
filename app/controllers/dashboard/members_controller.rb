@@ -1,6 +1,6 @@
 module Dashboard
   # :nodoc:
-  class MembersController < DashboardController
+  class MembersController < AdminController
     before_action :set_member, only: [:update, :edit, :destroy]
 
     def index
