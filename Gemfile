@@ -14,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 gem 'paperclip', '~> 5.0.0'
 gem 'react-rails'
+gem 'rubocop'
 
 group :development, :test do
   gem 'byebug'
