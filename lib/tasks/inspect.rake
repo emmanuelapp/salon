@@ -1,7 +1,9 @@
-namespace :commit do
-  task github: :environment do
-    `git add --all`
-    `git commit -m 'auto commit'`
-    `git push origin master`
+namespace :inspect do
+  desc 'TODO'
+  task models: :environment do
+    # `bundle exec rspec spec/models`
+    # `rubocop app/models`
+    # `bundle exec rubocop spec/models`
+    puts "#{ENV['var']}"
   end
 end
