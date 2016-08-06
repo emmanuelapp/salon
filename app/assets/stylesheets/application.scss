@@ -71,3 +71,17 @@ $text-color: #fff;
     margin-top: .5em;
   }
 }
+
+.title-bar-colors {
+    background-color: #F0E0BC;
+    color: #1A1416;
+  a {
+    font-weight: 300;
+    font-size: .8em;
+    color: #1A1416;
+  }
+  strong {
+    font-weight: 700;
+    font-size: .9em;
+  }
+}
