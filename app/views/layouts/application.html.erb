@@ -13,19 +13,24 @@
   </head>
 
   <body>
-    <div data-sticky-container>
-      <div class="title-bar sticky title-bar-colors" data-sticky data-options="marginTop:0;" style="width:100%">
+    <div class='row'>
+      <div data-sticky-container>
+        <div class="title-bar sticky title-bar-colors" data-sticky data-options="marginTop:0;" style="width:100%">
 
-        <div class="title-bar-left">
-          <strong>Health &amp; beauty center Kava</strong>
-        </div>
+          <!-- <div class="title-bar-left"> -->
+            <div class="menu-centered">
+              <div class="expanded button-group">
+                <%= link_to 'За нас', front_paragraphs_path, class: 'alert hollow button' %>
+                <%= link_to 'Услуги', front_offers_path, class: 'alert hollow button' %>
+                <%= link_to 'Екип', front_members_path , class: 'alert hollow button' %>
+                <%= link_to 'Контакти', '#', class: 'alert hollow button' %>
+                <%#= link_to 'Запиши час', '#', class: 'alert hollow button' %>
+              </div>
+            </div>
+          <!-- </div> -->
 
-        <div class="title-bar-right">
-          <ul class="menu">
-            <li><%= link_to 'За нас', front_paragraphs_path, class: 'button secondary' %></li>
-            <li><%= link_to 'Услуги', front_offers_path, class: 'button secondary' %></li>
-            <li><%= link_to 'Екип', front_members_path , class: 'button secondary' %></li>
-          </ul>
+          <!-- <div class="title-bar-right"> -->
+          <!-- </div> -->
         </div>
       </div>
     </div>
@@ -38,20 +43,24 @@
 
     <%= yield %>
 
-    <footer class="footer">
-      <div class="row full-width">
-        <div class="small-12 medium-6 large-6 columns">
-          <p>Created with love by: <a href='https://bg.linkedin.com/in/joromir' target='_blank'>Georgi N. Kostov - Joromir</a></p>
-          <p>Адрес: София ул. "Люлин планина" 33</p>
-          <p>Телефон: +359 893 454 666</p>
-          <a href='https://www.facebook.com/Health-and-Beauty-centur-KAVA-324285777780321/' target='_blank'>FACEBOOK</a>
-        </div>
+    <div class='row'>
+      <footer class="footer">
+        <div class="row full-width">
+          <div class="small-12 medium-6 large-6 columns">
+            <p>Developed by: <a href='https://bg.linkedin.com/in/joromir' target='_blank'>Georgi N. Kostov</a></p>
+            <br><br>
+            <p>Health &amp; beauty center Kava</p>
+            <p>Адрес: София ул. "Люлин планина" 33</p>
+            <p>Телефон: +359 893 454 666</p>
+            <!-- <a href='https://www.facebook.com/Health-and-Beauty-centur-KAVA-324285777780321/' target='_blank'>FACEBOOK</a> -->
+          </div>
 
-        <div class="small-12 medium-6 large-6 columns">
-          <p>Lorem ipsum dolor sit amet, nostro delenit consectetuer est et, qui ullum detraxit salutandi ei, ad vis erat impetus vulputate. Sit ut repudiandae neglegentur instructior, ex aperiri mentitum tincidunt nam, usu justo veritus signiferumque ne. In mel causae necessitatibus.</p>
+          <div class="small-12 medium-6 large-6 columns">
+            <p>Health &amp; beauty center Kava</p>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
 
   </body>
 </html>

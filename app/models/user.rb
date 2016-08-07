@@ -1,5 +1,8 @@
 # :nodoc:
 class User < ApplicationRecord
   devise :database_authenticatable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable,
+         :rememberable,
+         :trackable,
+         :validatable
 end
