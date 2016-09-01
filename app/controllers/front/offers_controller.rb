@@ -1,8 +1,5 @@
 module Front
-  #:nodoc:
+  # :nodoc:
   class OffersController < ApplicationController
-    def index
-      @offers = Offer.all
-    end
   end
 end
