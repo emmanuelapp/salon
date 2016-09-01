@@ -14,25 +14,26 @@ module Dashboard
     def create
       @offer = Offer.new(offer_params)
 
-      if @offer.save
-        redirect_to dashboard_offers_path
-        flash[:notice] = 'Offer created successfully! : )'
-      else
-        redirect_to dashboard_offers_path, 'Something went terribly wrong....'
-      end
+      flash[:notice] = if @offer.save
+                         'Offer created successfully! : )'
+                       else
+                         'Something went terribly wrong....'
+                       end
+
+      redirect_to dashboard_offers_path
     end
 
     def edit
     end
 
     def update
-      if @offer.update(offer_params)
-        redirect_to dashboard_offers_path
-        flash[:notice] = 'Offer updated successfully! : )'
-      else
-        redirect_to dashboard_offers_path
-        flash[:notice] = 'Something went wrong while trying to update...'
-      end
+      flash[:notice] = if @offer.update(offer_params)
+                         'Offer updated successfully! : )'
+                       else
+                         'Something went wrong while trying to update...'
+                       end
+
+      redirect_to dashboard_offers_path
     end
 
     def destroy

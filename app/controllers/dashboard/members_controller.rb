@@ -27,13 +27,13 @@ module Dashboard
     end
 
     def update
-      if @member.update(member_params)
-        redirect_to dashboard_members_path
-        flash[:notice] = 'Member updated successfully! : )'
-      else
-        redirect_to dashboard_members_path
-        flash[:notice] = 'Something went wrong while trying to update...'
-      end
+      flash[:notice] = if @member.update(member_params)
+                         'Member updated successfully! : )'
+                       else
+                         'Something went wrong while trying to update...'
+                       end
+
+      redirect_to dashboard_members_path
     end
 
     def destroy
@@ -49,14 +49,12 @@ module Dashboard
     end
 
     def member_params
-      params.require(:member).permit(
-        :first_name,
-        :last_name,
-        :profession,
-        :description,
-        :phone_number,
-        :avatar
-      )
+      params.require(:member).permit(:first_name,
+                                     :last_name,
+                                     :profession,
+                                     :description,
+                                     :phone_number,
+                                     :avatar)
     end
   end
 end

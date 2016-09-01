@@ -14,26 +14,26 @@ module Dashboard
     def create
       @paragraph = Paragraph.new(paragraph_params)
 
-      if @paragraph.save
-        redirect_to dashboard_paragraphs_path
-        flash[:notice] = 'Paragraph created successfully! : )'
-      else
-        redirect_to dashboard_paragraphs_path
-        flash[:error] = 'Something went terribly wrong....'
-      end
+      flash[:error] = if @paragraph.save
+                        'Paragraph created successfully! : )'
+                      else
+                        'Something went terribly wrong....'
+                      end
+
+      redirect_to dashboard_paragraphs_path
     end
 
     def edit
     end
 
     def update
-      if @paragraph.update(paragraph_params)
-        redirect_to dashboard_paragraphs_path
-        flash[:notice] = 'Paragraph updated successfully! : )'
-      else
-        redirect_to dashboard_paragraphs_path
-        flash[:notice] = 'Something went wrong while trying to update...'
-      end
+      flash[:notice] = if @paragraph.update(paragraph_params)
+                         'Paragraph updated successfully! : )'
+                       else
+                         'Something went wrong while trying to update...'
+                       end
+
+      redirect_to dashboard_paragraphs_path
     end
 
     def destroy
