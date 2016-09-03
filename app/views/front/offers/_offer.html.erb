@@ -2,6 +2,6 @@
   <a href="#" class="accordion-title"><%= offer.name %></a>
   <div class="accordion-content" data-tab-content>
     <p><%= offer.description %></p>
-    <p><%= offer.price.present? ? "#{offer.price} лв" : nil %></p>
+    <p><%= format_price(offer) %></p>
   </div>
 </li>

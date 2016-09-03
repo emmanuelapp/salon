@@ -2,8 +2,4 @@
   <h3> Нашият екип </h3>
 </div>
 
-<% if @members.empty? %>
-  <h5> Тази страница все още не е попълнена </h5>
-<% else %>
-  <%= render @members %>
-<% end %>
+<%= list_items(@members) %>
