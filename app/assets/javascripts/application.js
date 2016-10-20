@@ -16,11 +16,18 @@
 //= require react_ujs
 //= require components
 //= require foundation
+//= require turbolinks
 //= require_tree .
 
-$(function() {
- $(document).foundation();
- $(window).trigger('load.zf.sticky');
-});
+function foundationSticky() {
+	$(function() {
+	 $(document).foundation();
+	 $(window).trigger('load.zf.sticky');
+	});
+}
 
-//= require turbolinks
+function ready() {
+	foundationSticky();
+}
+
+$(document).on('turbolinks:load', ready);
