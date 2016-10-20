@@ -1,10 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe Dashboard::MembersController, type: :controller do
+  before(:each) do
+    @member = Member.create(attributes_for(:member))
+  end
+
+  after(:each) { Member.delete_all }
+
   describe 'GET #index' do
     subject { get :index }
 
     context 'when the user is logged in' do
+      login_user
+
+      it 'responds with HTTP status 200' do
+        expect(subject).to have_http_status 200
+      end
+
+      it 'renders the proper template' do
+        expect(subject).to render_template(:index)
+      end
     end
 
     context 'when the user is not logged in' do
@@ -22,6 +37,15 @@ RSpec.describe Dashboard::MembersController, type: :controller do
     subject { get :new }
 
     context 'when the user is logged in' do
+      login_user
+
+      it 'responds with HTTP status 200' do
+        expect(subject).to have_http_status 200
+      end
+
+      it 'renders the proper template' do
+        expect(subject).to render_template(:new)
+      end
     end
 
     context 'when the user is not logged in' do
@@ -36,9 +60,18 @@ RSpec.describe Dashboard::MembersController, type: :controller do
   end
 
   describe 'GET #edit' do
-    subject { get :edit, id: 192 }
+    subject { get :edit, id: @member.id }
 
     context 'when the user is logged in' do
+      login_user
+
+      it 'responds with HTTP status 200' do
+        expect(subject).to have_http_status 200
+      end
+
+      it 'renders the proper template' do
+        expect(subject).to render_template(:edit)
+      end
     end
 
     context 'when the user is not logged in' do
@@ -55,7 +88,12 @@ RSpec.describe Dashboard::MembersController, type: :controller do
   describe 'POST #create' do
     subject { post :create }
 
-    context 'when the user is logged in' do
+    context 'when the user is logged in and submmits valid data' do
+      # TODO
+    end
+
+    context 'when the user is logged in and submits invalid data' do
+      # TODO
     end
 
     context 'when the user is not logged in' do
@@ -70,9 +108,14 @@ RSpec.describe Dashboard::MembersController, type: :controller do
   end
 
   describe 'PUT #update' do
-    subject { put :update, id: 192 }
+    subject { put :update, id: @member.id }
 
-    context 'when the user is logged in' do
+    context 'when the user is logged in and submmits valid data' do
+      # TODO
+    end
+
+    context 'when the user is logged in and submits invalid data' do
+      # TODO
     end
 
     context 'when the user is not logged in' do
