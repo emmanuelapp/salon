@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Dashboard::MembersController, type: :controller do
-  describe "GET #index" do
+  describe 'GET #index' do
     subject { get :index }
 
     context 'when the user is logged in' do
@@ -18,7 +18,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
     end
   end
 
-  describe "GET #new" do
+  describe 'GET #new' do
     subject { get :new }
 
     context 'when the user is logged in' do
@@ -35,7 +35,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
     end
   end
 
-  describe "GET #edit" do
+  describe 'GET #edit' do
     subject { get :edit, id: 192 }
 
     context 'when the user is logged in' do
@@ -52,7 +52,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
     end
   end
 
-  describe "POST #create" do
+  describe 'POST #create' do
     subject { post :create }
 
     context 'when the user is logged in' do
@@ -69,7 +69,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
     end
   end
 
-  describe "PUT #update" do
+  describe 'PUT #update' do
     subject { put :update, id: 192 }
 
     context 'when the user is logged in' do
