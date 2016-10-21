@@ -1,7 +1,7 @@
 module Dashboard
   # :nodoc:
   class ParagraphsController < AdminController
-    before_action :set_paragraph, only: [:update, :edit, :destroy]
+    before_action :find_paragraph, only: [:update, :edit, :destroy]
 
     def index
       @paragraphs = Paragraph.all
@@ -14,37 +14,37 @@ module Dashboard
     def create
       @paragraph = Paragraph.new(paragraph_params)
 
-      flash[:error] = if @paragraph.save
-                        'Paragraph created successfully! : )'
-                      else
-                        'Something went terribly wrong....'
-                      end
-
-      redirect_to dashboard_paragraphs_path
+      if @paragraph.save
+        flash[:notice] = t(:created_successfully)
+        redirect_to dashboard_paragraphs_path
+      else
+        flash[:error] = t(:something_went_wrong)
+        render :create
+      end
     end
 
     def edit
     end
 
     def update
-      flash[:notice] = if @paragraph.update(paragraph_params)
-                         'Paragraph updated successfully! : )'
-                       else
-                         'Something went wrong while trying to update...'
-                       end
-
-      redirect_to dashboard_paragraphs_path
+      if @paragraph.update(paragraph_params)
+        flash[:notice] = t(:updated_successfully)
+        redirect_to dashboard_paragraphs_path
+      else
+        flash[:error] = t(:something_went_wrong)
+        render :edit
+      end
     end
 
     def destroy
       @paragraph.delete
       redirect_to dashboard_paragraphs_path
-      flash[:notice] = 'Post has been successfully deleted from the database'
+      flash[:notice] = t(:record_deleted)
     end
 
     private
 
-    def set_paragraph
+    def find_paragraph
       @paragraph = Paragraph.find(params[:id])
     end
 

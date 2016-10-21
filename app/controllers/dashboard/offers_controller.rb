@@ -1,7 +1,7 @@
 module Dashboard
   # :nodoc:
   class OffersController < AdminController
-    before_action :set_offer, only: [:update, :edit, :destroy]
+    before_action :find_offer, only: [:update, :edit, :destroy]
 
     def index
       @offers = Offer.all
@@ -14,37 +14,37 @@ module Dashboard
     def create
       @offer = Offer.new(offer_params)
 
-      flash[:notice] = if @offer.save
-                         'Offer created successfully! : )'
-                       else
-                         'Something went terribly wrong....'
-                       end
-
-      redirect_to dashboard_offers_path
+      if @offer.save
+        flash[:notice] = t(:created_successfully)
+        redirect_to dashboard_offers_path
+      else
+        flash[:error] = t(:something_went_wrong)
+        render(:new)
+      end
     end
 
     def edit
     end
 
     def update
-      flash[:notice] = if @offer.update(offer_params)
-                         'Offer updated successfully! : )'
-                       else
-                         'Something went wrong while trying to update...'
-                       end
-
-      redirect_to dashboard_offers_path
+      if @offer.update(offer_params)
+        flash[:notice] = t(:updated_successfully)
+        redirect_to dashboard_offers_path
+      else
+        flash[:error] = t(:something_went_wrong)
+        render(:edit)
+      end
     end
 
     def destroy
       @offer.delete
       redirect_to dashboard_offers_path
-      flash[:notice] = 'Offer has been successfully deleted from the database'
+      flash[:notice] = t(:record_deleted)
     end
 
     private
 
-    def set_offer
+    def find_offer
       @offer = Offer.find(params[:id])
     end
 

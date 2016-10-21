@@ -1,7 +1,7 @@
 module Dashboard
   # :nodoc:
   class MembersController < AdminController
-    before_action :set_member, only: [:update, :edit, :destroy]
+    before_action :find_member, only: [:update, :edit, :destroy]
 
     def index
       @members = Member.all
@@ -16,10 +16,10 @@ module Dashboard
 
       if @member.save
         redirect_to dashboard_members_path
-        flash[:notice] = 'Member created successfully! : )'
+        flash[:notice] = t(:created_successfully)
       else
         render :new
-        flash[:error] = 'Something went terribly wrong....'
+        flash[:error] = t(:something_went_wrong)
       end
     end
 
@@ -27,24 +27,24 @@ module Dashboard
     end
 
     def update
-      flash[:notice] = if @member.update(member_params)
-                         'Member updated successfully! : )'
-                       else
-                         'Something went wrong while trying to update...'
-                       end
-
-      redirect_to dashboard_members_path
+      if @member.update(member_params)
+        redirect_to dashboard_members_path
+        flash[:notice] = t(:updated_successfully)
+      else
+        render :edit
+        flash[:error] = t(:something_went_wrong)
+      end
     end
 
     def destroy
       @member.delete
       redirect_to dashboard_members_path
-      flash[:notice] = 'Member has been successfully deleted from the database'
+      flash[:notice] = t(:record_deleted)
     end
 
     private
 
-    def set_member
+    def find_member
       @member = Member.find(params[:id])
     end
 
