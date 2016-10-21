@@ -1,12 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Dashboard::MembersController, type: :controller do
-  before(:each) do
-    @member = Member.create(attributes_for(:member))
-  end
-
-  after(:each) { Member.delete_all }
-
   describe 'GET #index' do
     subject { get :index }
 
@@ -59,8 +53,14 @@ RSpec.describe Dashboard::MembersController, type: :controller do
     end
   end
 
+  before(:each) do
+    @member = Member.create(attributes_for(:member))
+  end
+
+  after(:each) { Member.delete_all }
+
   describe 'GET #edit' do
-    subject { get :edit, id: @member.id }
+    subject { get :edit, params: { id: @member.id } }
 
     context 'when the user is logged in' do
       login_user
@@ -108,7 +108,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
   end
 
   describe 'PUT #update' do
-    subject { put :update, id: @member.id }
+    subject { put :update, params: { id: @member.id } }
 
     context 'when the user is logged in and submmits valid data' do
       # TODO
