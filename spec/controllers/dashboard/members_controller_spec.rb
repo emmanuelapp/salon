@@ -18,7 +18,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
 
     context 'when the user is not logged in' do
       it 'redirects to login page' do
-        expect(subject).to redirect_to 'http://test.host/users/sign_in'
+        expect(subject).to redirect_to '/users/sign_in'
       end
 
       it 'responds with HTTP status 302' do
@@ -44,7 +44,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
 
     context 'when the user is not logged in' do
       it 'redirects to login page' do
-        expect(subject).to redirect_to 'http://test.host/users/sign_in'
+        expect(subject).to redirect_to '/users/sign_in'
       end
 
       it 'responds with HTTP status 302' do
@@ -76,7 +76,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
 
     context 'when the user is not logged in' do
       it 'redirects to login page' do
-        expect(subject).to redirect_to 'http://test.host/users/sign_in'
+        expect(subject).to redirect_to '/users/sign_in'
       end
 
       it 'responds with HTTP status 302' do
@@ -86,19 +86,47 @@ RSpec.describe Dashboard::MembersController, type: :controller do
   end
 
   describe 'POST #create' do
-    subject { post :create }
-
     context 'when the user is logged in and submmits valid data' do
-      # TODO
+      subject { post :create, params: { member: attributes_for(:member) } }
+
+      login_user
+
+      it 'chenges Member.count' do
+        expect { subject }.to change { Member.count }.by(1)
+      end
+
+      it 'redirects to /dashboard/members' do
+        expect(subject).to redirect_to '/dashboard/members'
+      end
+
+      it 'responds with HTTP status 302' do
+        expect(subject).to have_http_status 302
+      end
     end
 
     context 'when the user is logged in and submits invalid data' do
-      # TODO
+      subject { post :create, params: { member: attributes_for(:invalid_member) } }
+
+      login_user
+
+      it 'does not change Member.count' do
+        expect { subject }.to change { Member.count }.by(0)
+      end
+
+      it 'renders new' do
+        expect(subject).to render_template :new
+      end
+
+      it 'responds with HTTP status 200' do
+        expect(subject).to have_http_status 200
+      end
     end
 
     context 'when the user is not logged in' do
+      subject { post :create, params: { member: attributes_for(:member) } }
+
       it 'redirects to login page' do
-        expect(subject).to redirect_to 'http://test.host/users/sign_in'
+        expect(subject).to redirect_to '/users/sign_in'
       end
 
       it 'responds with HTTP status 302' do
@@ -108,19 +136,55 @@ RSpec.describe Dashboard::MembersController, type: :controller do
   end
 
   describe 'PUT #update' do
-    subject { put :update, params: { id: @member.id } }
-
     context 'when the user is logged in and submmits valid data' do
-      # TODO
+      login_user
+
+      subject do
+        put :update, params: {
+          id: @member.id, member: { profession: 'Barber' }
+        }
+      end
+
+      it 'chenges @member' do
+        expect { subject }.to change { @member.reload.profession }
+      end
+
+      it 'redirects to /dashboard/members' do
+        expect(subject).to redirect_to '/dashboard/members'
+      end
+
+      it 'responds with HTTP status 302' do
+        expect(subject).to have_http_status 302
+      end
     end
 
     context 'when the user is logged in and submits invalid data' do
-      # TODO
+      subject do
+        put :update, params: {
+          id: @member.id, member: attributes_for(:invalid_member)
+        }
+      end
+
+      login_user
+
+      it 'does not change Member.count' do
+        expect { subject }.to_not change { @member }
+      end
+
+      it 'redirects to /dashboard/members' do
+        expect(subject).to redirect_to '/dashboard/members'
+      end
+
+      it 'responds with HTTP status 302' do
+        expect(subject).to have_http_status 302
+      end
     end
 
     context 'when the user is not logged in' do
+      subject { put :update, params: { id: @member.id } }
+
       it 'redirects to login page' do
-        expect(subject).to redirect_to 'http://test.host/users/sign_in'
+        expect(subject).to redirect_to '/users/sign_in'
       end
 
       it 'responds with HTTP status 302' do
