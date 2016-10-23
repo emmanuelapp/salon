@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :paragraphs, only: [:index], path: 'about'
     resources :offers, only: [:index]
     resources :details, only: [:index]
+    resources :bookings, only: [:new, :create]
   end
 
   namespace :dashboard do
