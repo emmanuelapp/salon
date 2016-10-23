@@ -1,7 +1,7 @@
 <div class='row'>
   <h3> Услуги </h3>
   <% if @offers.empty? %>
-    <h5> Тази страница все още не е попълнена </h5>
+    <h5><%= t(:empty_page) %></h5>
   <% else %>
     <ul class="accordion" data-accordion data-allow-all-closed="true">
       <%= render @offers %>
