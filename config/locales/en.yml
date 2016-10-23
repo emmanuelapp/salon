@@ -18,3 +18,7 @@ en:
   contacts: "Contacts"
   book_an_hour: "Book an hour"
   empty_page: "Empty page"
+  first_name: "First name"
+  last_name: "Last name"
+  phone: "Phone"
+  additional_info: "Additional info..."
