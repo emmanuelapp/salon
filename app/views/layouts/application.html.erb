@@ -6,7 +6,14 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <script
+        src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
 
     <title><%= content_for?(:title) ? yield(:title) : 'Kava' %></title>
 
@@ -16,57 +23,32 @@
   </head>
 
   <body>
-    <div class='row'>
-      <div data-sticky-container>
-        <div class="title-bar sticky title-bar-colors" data-sticky data-options="marginTop:0;" style="width:100%">
+    <div class="wrapper">
+      <div class="row row-offcanvas row-offcanvas-left">
+        <div class="column col-sm-3 col-xs-1 sidebar-offcanvas" id="sidebar">
+          <ul class="nav" id="menu">
+            <li><%= link_to t(:about), front_paragraphs_path %></li>
+            <li><%= link_to t(:offers), front_offers_path %></li>
+            <li><%= link_to t(:team), front_members_path %></li>
+            <li><%= link_to t(:contacts), front_details_path %></li>
+            <li><%= link_to t(:book_an_hour), new_front_booking_path %></li>
+          </ul>
+        </div>
 
-          <!-- <div class="title-bar-left"> -->
-            <div class="menu-centered">
-              <strong>Health and beauty center Kava</strong>
+        <div class="column col-sm-9 col-xs-11" id="main">
+          <p><a href="#" data-toggle="offcanvas"><i class="fa fa-navicon fa-2x"></i></a></p>
+            <p>
+              <%= image_tag 'logo_small.png' %>
 
-              <div class="expanded button-group">
-                <%= link_to t(:about), front_paragraphs_path, class: 'alert hollow button' %>
-                <%= link_to t(:offers), front_offers_path, class: 'alert hollow button' %>
-                <%= link_to t(:team), front_members_path , class: 'alert hollow button' %>
-                <%= link_to t(:contacts), front_details_path, class: 'alert hollow button' %>
-                <%= link_to t(:book_an_hour), new_front_booking_path, class: 'alert hollow button' %>
+              <div class='row'>
+                <p class="notice"><%= notice %></p>
+                <p class="alert"><%= alert %></p>
               </div>
-            </div>
-          </div>
 
-          <!-- <div class="title-bar-right"> -->
-          <!-- </div> -->
+              <%= yield %>
+            </p>
         </div>
       </div>
     </div>
-
-    <div class='row'>
-      <%= image_tag 'logo_small.png', class: 'center' %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
-
-    <%= yield %>
-
-    <div class='row'>
-      <footer class="footer">
-        <div class="row full-width">
-          <div class="small-12 medium-6 large-6 columns">
-            <p>Developed by: <a href='https://bg.linkedin.com/in/joromir' target='_blank'>Georgi N. Kostov</a></p>
-            <br><br>
-            <p>Health &amp; beauty center Kava</p>
-            <p>Адрес: София ул. "Люлин планина" 33</p>
-            <p>Телефон: +359 893 454 666</p>
-            <!-- TODO: add facebook button -->
-            <!-- <a href='https://www.facebook.com/Health-and-Beauty-centur-KAVA-324285777780321/' target='_blank'>FACEBOOK</a> -->
-          </div>
-
-          <div class="small-12 medium-6 large-6 columns">
-            <p>Health &amp; beauty center Kava</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-
   </body>
 </html>

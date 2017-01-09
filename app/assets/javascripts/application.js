@@ -18,15 +18,11 @@
 //= require turbolinks
 //= require_tree .
 
-function foundationSticky() {
-	$(function() {
-	 $(document).foundation();
-	 $(window).trigger('load.zf.sticky');
-	});
-}
-
 function ready() {
-	foundationSticky();
+  $('[data-toggle=offcanvas]').click(function() {
+      $('.row-offcanvas').toggleClass('active');
+      $('.collapse').toggleClass('in').toggleClass('hidden-xs').toggleClass('visible-xs');
+  });
 }
 
 $(document).on('turbolinks:load', ready);
