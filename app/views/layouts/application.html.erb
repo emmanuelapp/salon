@@ -42,16 +42,18 @@
 
         <div class="column col-sm-9 col-xs-11" id="main">
           <p><a href="#" data-toggle="offcanvas"><i class="fa fa-navicon fa-2x"></i></a></p>
-            <p>
-              <%= image_tag 'logo_small.png' %>
+            <%= image_tag 'logo_small.png' %>
 
-              <div class='row'>
-                <p class="notice"><%= notice %></p>
-                <p class="alert"><%= alert %></p>
-              </div>
+            <div class='row'>
+              <h1>Health and Beauty centre Kava</h1>
+            </div>
 
-              <%= yield %>
-            </p>
+            <div class='row'>
+              <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
+            </div>
+
+            <%= yield %>
         </div>
       </div>
     </div>
