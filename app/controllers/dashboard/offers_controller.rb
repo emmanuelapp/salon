@@ -1,11 +1,9 @@
 module Dashboard
   # :nodoc:
   class OffersController < AdminController
-    before_action :find_offer, only: [:update, :edit, :destroy]
+    include Offerable
 
-    def index
-      @offers = Offer.all
-    end
+    before_action :find_offer, only: [:update, :edit, :destroy]
 
     def new
       @offer = Offer.new

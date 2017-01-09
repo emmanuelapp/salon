@@ -1,11 +1,8 @@
 module Dashboard
   # :nodoc:
   class ParagraphsController < AdminController
+    include Paragraphable
     before_action :find_paragraph, only: [:update, :edit, :destroy]
-
-    def index
-      @paragraphs = Paragraph.all
-    end
 
     def new
       @paragraph = Paragraph.new
