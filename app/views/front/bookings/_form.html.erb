@@ -1,8 +1,27 @@
 <%= form_for [:front, @booking] do |f| %>
-  <%= f.text_field :first_name, placeholder: t(:first_name) %>
-  <%= f.text_field :last_name, placeholder: t(:last_name) %>
-  <%= f.text_field :phone, placeholder: t(:phone) %>
-  <%= f.text_area :additional_info, placeholder: t(:additional_info) %>
-  <%= f.datetime_select :reservation %>
-  <%= f.submit %>
+  <div class='form-group'>
+    <%= f.label :reservation, t(:reservation) %>
+
+    <span class='form-control'>
+      <%= f.datetime_select :reservation, { order: [:day, :month, :year] } %>
+    </span>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :first_name, t(:first_name) %>
+    <%= f.text_field :first_name, placeholder: t(:first_name), class: 'form-control' %>
+
+    <%= f.label :last_name, t(:last_name) %>
+    <%= f.text_field :last_name, placeholder: t(:last_name), class: 'form-control' %>
+  </div>
+
+  <div class='form-group'>
+    <%= f.label :phone, t(:phone) %>
+    <%= f.text_field :phone, placeholder: t(:phone), class: 'form-control' %>
+
+    <%= f.label :additional_info, t(:additional_info) %>
+    <%= f.text_area :additional_info, placeholder: t(:additional_info), class: 'form-control' %>
+  </div>
+
+  <%= f.submit class: 'btn btn-primary btn-lg' %>
 <% end %>
