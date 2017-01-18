@@ -28,34 +28,35 @@
   </head>
 
   <body>
-    <div class="wrapper">
-      <div class="row row-offcanvas row-offcanvas-left">
-        <div class="column col-sm-3 col-xs-1 sidebar-offcanvas" id="sidebar">
-          <ul class="nav" id="menu">
-            <li><%= link_to t(:about), front_paragraphs_path %></li>
-            <li><%= link_to t(:offers), front_offers_path %></li>
-            <li><%= link_to t(:team), front_members_path %></li>
-            <li><%= link_to t(:contacts), front_details_path %></li>
-            <li><%= link_to t(:book_an_hour), new_front_booking_path %></li>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><%= link_to t(:about), front_paragraphs_path %></li>
+            <li role="presentation"><%= link_to t(:offers), front_offers_path %></li>
+            <li role="presentation"><%= link_to t(:team), front_members_path %></li>
+            <li role="presentation"><%= link_to t(:contacts), front_details_path %></li>
+            <li role="presentation" class="active"><%= link_to t(:book_an_hour), new_front_booking_path %></li>
           </ul>
+        </nav>
+
+        <h3 class="text-muted">Health and Beauty centre KAVA</h3>
+        <div class="jumbotron">
+          <h4>Health and Beauty centre KAVA</h4>
+          <p>Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea.</p>
+          <%= link_to t(:book_an_hour), new_front_booking_path, class: 'btn btn-warning btn-lg' %>
         </div>
 
-        <div class="column col-sm-9 col-xs-11" id="main">
-          <p><a href="#" data-toggle="offcanvas"><i class="fa fa-navicon fa-2x"></i></a></p>
-            <%= image_tag 'logo_small.png' %>
+        <%= image_tag 'logo_small.png' %>
 
-            <div class='row'>
-              <h1>Health and Beauty centre Kava</h1>
-            </div>
-
-            <div class='row'>
-              <p class="notice"><%= notice %></p>
-              <p class="alert"><%= alert %></p>
-            </div>
-
-            <%= yield %>
+        <div class='row'>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
         </div>
       </div>
+
+      <%= yield %>
+
     </div>
   </body>
 </html>
