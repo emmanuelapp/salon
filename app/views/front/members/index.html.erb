@@ -1,5 +1,6 @@
-<div class = 'row'>
-  <h3> Нашият екип </h3>
+<div class='container'>
+  <div class='row'>
+    <h3><%= t(:team) %></h3>
+    <%= render @members %>
+  </div>
 </div>
-
-<%= list_items(@members) %>
