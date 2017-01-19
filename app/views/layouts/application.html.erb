@@ -47,8 +47,6 @@
           <%= link_to t(:book_an_hour), new_front_booking_path, class: 'btn btn-warning btn-lg' %>
         </div>
 
-        <%= image_tag 'logo_small.png' %>
-
         <div class='row'>
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
@@ -58,6 +56,7 @@
       <%= yield %>
 
       <footer class='footer'>
+        <p><%= image_tag 'logo_small.png' %></p>
         2017 KAVA
       </footer>
     </div>
