@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'front/paragraphs#index'
+  root 'paragraphs#index'
 
   get '/admin', to: 'dashboard/offers#index'
 
-  namespace :front do
-    resources :members, only: [:index]
-    resources :paragraphs, only: [:index], path: 'about'
-    resources :offers, only: [:index]
-    resources :details, only: [:index]
-    resources :bookings, only: [:new, :create]
-  end
+  resources :members, only: [:index]
+  resources :paragraphs, only: [:index], path: 'about'
+  resources :offers, only: [:index]
+  resources :details, only: [:index]
+  resources :bookings, only: [:new, :create]
 
   namespace :dashboard do
     resources :members, except: [:show]

@@ -32,11 +32,11 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><%= link_to t(:about), front_paragraphs_path %></li>
-            <li role="presentation"><%= link_to t(:offers), front_offers_path %></li>
-            <li role="presentation"><%= link_to t(:team), front_members_path %></li>
-            <li role="presentation"><%= link_to t(:contacts), front_details_path %></li>
-            <li role="presentation" class="active"><%= link_to t(:book_an_hour), new_front_booking_path %></li>
+            <li role="presentation"><%= link_to t(:about), paragraphs_path %></li>
+            <li role="presentation"><%= link_to t(:offers), offers_path %></li>
+            <li role="presentation"><%= link_to t(:team), members_path %></li>
+            <li role="presentation"><%= link_to t(:contacts), details_path %></li>
+            <li role="presentation" class="active"><%= link_to t(:book_an_hour), new_booking_path %></li>
           </ul>
         </nav>
 
@@ -44,7 +44,7 @@
         <div class="jumbotron">
           <h1>Health and Beauty centre KAVA</h1>
           <p>Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea.</p>
-          <%= link_to t(:book_an_hour), new_front_booking_path, class: 'btn btn-warning btn-lg' %>
+          <%= link_to t(:book_an_hour), new_booking_path, class: 'btn btn-warning btn-lg' %>
         </div>
 
         <div class='row'>
