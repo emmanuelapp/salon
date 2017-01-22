@@ -1,28 +1,16 @@
-<div class='row'>
-  <div class='column large-6 small-5'>
-    <div class="thumbnail">
-      <%= image_tag(member.avatar(:thumb)) %>
-    </div>
+<%#= image_tag(member.avatar(:thumb)) %>
 
+<h4><%= member.full_name %></h4>
+<p><%= member.profession %></p>
+<p><%= member.phone_number %></p>
 
-    <h4><%= member.full_name %></h4>
-    <h5><%= member.profession %></h5>
-    <h5><%= member.phone_number %></h5>
+<p><%= member.description %></p>
 
-    <p><b>Създадено на:</b> <%= member.created_at.to_formatted_s(:long_ordinal) %></p>
-    <p><b>Обновено на:</b> <%= member.updated_at.to_formatted_s(:long_ordinal) %></p>
+<li>Created:<%= member.created_at.to_formatted_s(:long_ordinal) %></li>
+<li>Updated:<%= member.updated_at.to_formatted_s(:long_ordinal) %></li>
 
-    <%= link_to "Редактирай", edit_dashboard_member_path(member), class: 'success button' %>
+<%= link_to t(:edit), edit_dashboard_member_path(member), class: 'btn btn-warning btn-sx' %>
 
-    <%= link_to "Премахни", dashboard_member_path(member),
-          method: :delete,
-          data: { confirm: 'Are you sure?' },
-          class: 'alert button' %>
-
-  </div>
-
-  <div class='column large-6 small-7'>
-    <%= member.description %><hr>
-  </div>
-
-</div>
+<%= link_to t(:remove), dashboard_member_path(member), method: :delete,
+                                                       data: { confirm: 'Are you sure?' },
+                                                       class: 'btn btn-danger btn-sx' %>

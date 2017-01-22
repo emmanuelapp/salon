@@ -29,11 +29,6 @@
 
   <body>
     <div class='container'>
-      <div class='row'>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
-      </div>
-
       <div class='jumbotron'>
         <h1>Dashboard</h1>
 
@@ -47,6 +42,11 @@
         <%= link_to t(:offers), dashboard_offers_path, class: 'btn btn-success btn-lg' %>
         <%= link_to t(:bookings), '#', class: 'btn btn-warning btn-lg' %>
         <%= link_to t(:logout), destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-lg' %>
+      </div>
+
+      <div class='row'>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
       </div>
 
       <hr>

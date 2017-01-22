@@ -1,5 +1,6 @@
 <div class='row'>
-  <%= link_to 'Добави нова публикация', new_dashboard_paragraph_path, class: 'warning button' %>
-  <%= link_to 'Публична област', paragraphs_path, class: 'warning button' %>
+  <%= link_to t(:new), new_dashboard_paragraph_path, class: 'btn btn-success btn-lg' %>
+  <%= link_to t(:public_area), paragraphs_path, class: 'btn btn-success btn-lg' %>
 </div>
+
 <%= render @paragraphs %>

@@ -1,6 +1,6 @@
 <div class='row'>
-  <%= link_to 'Добави ново лице към екипа', new_dashboard_member_path, class: 'warning button' %>
-  <%= link_to 'Публична област', members_path, class: 'warning button' %>
+  <%= link_to t(:new), new_dashboard_member_path, class: 'btn btn-success btn-lg' %>
+  <%= link_to t(:public_area), members_path, class: 'btn btn-success btn-lg' %>
 </div>
 
 <%= render @members %>

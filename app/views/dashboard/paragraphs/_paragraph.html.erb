@@ -1,17 +1,13 @@
-<div class='row'>
-  <div class="media-object callout clearfix">
-    <div class='column large-8'>
-      <div class="media-object-section">
-        <h4><%= paragraph.title %></h4>
-        <p><%= paragraph.body %></p>
-      </div>
-    </div>
+<h4><%= paragraph.title %></h4>
+<p><%= paragraph.body %></p>
 
-    <div class='column large-4'>
-      <%= link_to "Редактирай", edit_dashboard_paragraph_path(paragraph), class: 'success button' %>
-      <%= link_to "Премахни", dashboard_paragraph_path(paragraph), method: :delete, data: { confirm: 'Are you sure?' } , class: 'alert button' %>
-      <p><b>Създадено на:</b><%= paragraph.created_at.to_formatted_s(:long_ordinal) %></p>
-      <p><b>Последна промяна на:</b><%= paragraph.updated_at.to_formatted_s(:long_ordinal) %></p>
-    </div>
-  </div>
-</div>
+<ul>
+  <li>Created: <%= paragraph.created_at.to_formatted_s(:long_ordinal) %></li>
+  <li>Updated: <%= paragraph.updated_at.to_formatted_s(:long_ordinal) %></li>
+</ul>
+<%= link_to t(:edit), edit_dashboard_paragraph_path(paragraph),
+                      class: 'btn btn-warning btn-sx' %>
+
+<%= link_to t(:remove), dashboard_paragraph_path(paragraph), method: :delete,
+                                                             data: { confirm: 'Are you sure?' },
+                                                             class: 'btn btn-danger btn-sx' %>
