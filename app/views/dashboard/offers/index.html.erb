@@ -1,6 +1,8 @@
 <div class='row'>
-  <%= link_to 'Добави нова услуга', new_dashboard_offer_path, class: 'warning button' %>
-  <%= link_to 'Публична област', offers_path, class: 'warning button' %>
+  <%= link_to t(:new), new_dashboard_offer_path, class: 'btn btn-success btn-lg' %>
+  <%= link_to t(:public_area), offers_path, class: 'btn btn-success btn-lg' %>
 </div>
 
-<%= render @offers %>
+<div class='row'>
+  <%= render @offers %>
+</div>

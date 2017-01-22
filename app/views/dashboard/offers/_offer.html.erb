@@ -1,18 +1,17 @@
-<div class='row'>
-  <div class="media-object callout clearfix">
-    <div class='column large-8'>
-      <div class="media-object-section">
-        <h4><%= offer.name %></h4>
-        <%= offer.description %>
-      </div>
-    </div>
+<div class='col-lg-12'>
+  <h4><%= offer.name %></h4>
+  <p><%= offer.description %></p>
 
-    <div class='column large-4'>
-      <%= link_to "Редактирай", edit_dashboard_offer_path(offer), class: 'success button' %>
-      <%= link_to "Премахни", dashboard_offer_path(offer), method: :delete, data: { confirm: 'Are you sure?' } , class: 'alert button' %>
-      <p><b>Price:</b> <%= "#{offer.price} лв" %></p>
-      <p><b>Създадено на: </b><%= offer.created_at.to_formatted_s(:long_ordinal) %></p>
-      <p><b>Последна промяна на: </b><%= offer.updated_at.to_formatted_s(:long_ordinal) %></p>
-    </div>
-  </div>
+  <ul>
+    <li>Price: <%= "#{offer.price} лв" %></li>
+    <li>Created: <%= offer.created_at.to_formatted_s(:long_ordinal) %></li>
+    <li>Updated: <%= offer.updated_at.to_formatted_s(:long_ordinal) %></li>
+  </ul>
+
+  <%= link_to t(:edit), edit_dashboard_offer_path(offer),
+                        class: 'btn btn-warning btn-sx' %>
+
+  <%= link_to t(:remove), dashboard_offer_path(offer), method: :delete,
+                                                       data: { confirm: 'Are you sure?' },
+                                                       class: 'btn btn-danger btn-sx' %>
 </div>

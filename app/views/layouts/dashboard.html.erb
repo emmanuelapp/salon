@@ -4,56 +4,54 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Kava" %></title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
 
-    <%= stylesheet_link_tag    "application" %>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"></script>
+
+    <title><%= content_for?(:title) ? yield(:title) : 'Health and Beauty centre Kava' %></title>
+
+    <%#= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <div class='row'>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-    </div>
-
-    <div class='row'>
-      <div data-sticky-container>
-        <div class='column large-4 sticky' data-sticky>
-          <ul class="vertical menu" data-responsive-menu="drilldown medium-dropdown" style="width: 300px;">
-            <li>
-              <%= link_to t(:team), dashboard_members_path %>
-              <ul class="vertical menu">
-                <li><%= link_to t(:view_team), dashboard_members_path %></li>
-                <li><%= link_to t(:add_new_member), new_dashboard_member_path %></li>
-              </ul>
-            </li>
-
-            <li>
-              <%= link_to t(:offers), dashboard_offers_path %>
-              <ul class="vertical menu">
-                <li><%= link_to t(:view_offers), dashboard_offers_path %></li>
-                <li><%= link_to t(:new_offer), new_dashboard_offer_path %></li>
-              </ul>
-            </li>
-
-            <li>
-              <%= link_to t(:index_page), dashboard_paragraphs_path %>
-              <ul class="vertical menu">
-                <li><%= link_to t(:publications), dashboard_paragraphs_path %></li>
-                <li><%= link_to t(:new_publication), new_dashboard_paragraph_path %></li>
-              </ul>
-            </li>
-
-            <li><%= link_to(t(:logout), destroy_user_session_path, method: :delete) %></li>
-          </ul>
-        </div>
+    <div class='container'>
+      <div class='row'>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
       </div>
 
-      <div class='column large-9'>
-        <%= yield %>
-      </div>
-    </div>
+      <div class='jumbotron'>
+        <h1>Dashboard</h1>
 
+        <p>TODO</p>
+        <p>12 Reservations awaiting your review</p>
+        <p>43 Reservations finalized</p>
+        <p>22 Reservations for this week</p>
+
+        <%= link_to t(:publications), dashboard_paragraphs_path, class: 'btn btn-success btn-lg' %>
+        <%= link_to t(:team), dashboard_members_path, class: 'btn btn-success btn-lg' %>
+        <%= link_to t(:offers), dashboard_offers_path, class: 'btn btn-success btn-lg' %>
+        <%= link_to t(:bookings), '#', class: 'btn btn-warning btn-lg' %>
+        <%= link_to t(:logout), destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-lg' %>
+      </div>
+
+      <hr>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
