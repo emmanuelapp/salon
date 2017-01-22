@@ -44,6 +44,7 @@
         <div class="jumbotron">
           <h1>Health and Beauty centre KAVA</h1>
           <p>Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea.</p>
+
           <%= link_to t(:book_an_hour), new_booking_path, class: 'btn btn-warning btn-lg' %>
         </div>
 
@@ -51,12 +52,13 @@
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
         </div>
+
+        <%= image_tag 'logo_small.png', style: 'display: block; margin: auto;' %>
       </div>
 
       <%= yield %>
 
       <footer class='footer'>
-        <p><%= image_tag 'logo_small.png' %></p>
         2017 KAVA
       </footer>
     </div>
