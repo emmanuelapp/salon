@@ -32,15 +32,29 @@
       <div class='jumbotron'>
         <h1>Dashboard</h1>
 
-        <p>TODO</p>
-        <p>12 Reservations awaiting your review</p>
-        <p>43 Reservations finalized</p>
-        <p>22 Reservations for this week</p>
+        <table class='table'>
+          <tr>
+            <td>New bookings</td>
+            <td><span class="badge">9</span></td>
+          </tr>
+          <tr>
+            <td>Reservations awaiting your review</td>
+            <td><span class="badge">4</span></td>
+          </tr>
+          <tr>
+            <td>Reservations finalized</td>
+            <td><span class="badge">24</span></td>
+          </tr>
+          <tr>
+            <td>Reservations for this week</td>
+            <td><span class="badge">14</span></td>
+          </tr>
+        </table>
 
         <%= link_to t(:publications), dashboard_paragraphs_path, class: 'btn btn-success btn-lg' %>
         <%= link_to t(:team), dashboard_members_path, class: 'btn btn-success btn-lg' %>
         <%= link_to t(:offers), dashboard_offers_path, class: 'btn btn-success btn-lg' %>
-        <%= link_to t(:bookings), '#', class: 'btn btn-warning btn-lg' %>
+        <%= link_to t(:bookings), dashboard_bookings_path, class: 'btn btn-warning btn-lg' %>
         <%= link_to t(:logout), destroy_user_session_path, method: :delete, class: 'btn btn-danger btn-lg' %>
       </div>
 
