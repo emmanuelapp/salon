@@ -13,21 +13,18 @@ module Dashboard
       @offer = Offer.new(offer_params)
 
       if @offer.save
-        flash[:notice] = t(:created_successfully)
-        redirect_to dashboard_offers_path
+        redirect_to dashboard_offers_path, notice: t(:created_successfully)
       else
         flash[:error] = t(:something_went_wrong)
         render(:new)
       end
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
       if @offer.update(offer_params)
-        flash[:notice] = t(:updated_successfully)
-        redirect_to dashboard_offers_path
+        redirect_to dashboard_offers_path, notice: t(:updated_successfully)
       else
         flash[:error] = t(:something_went_wrong)
         render(:edit)
@@ -35,9 +32,8 @@ module Dashboard
     end
 
     def destroy
-      @offer.delete
-      redirect_to dashboard_offers_path
-      flash[:notice] = t(:record_deleted)
+      @offer.destroy!
+      redirect_to dashboard_offers_path, notice: t(:record_deleted)
     end
 
     private

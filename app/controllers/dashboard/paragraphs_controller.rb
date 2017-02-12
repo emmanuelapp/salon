@@ -12,21 +12,18 @@ module Dashboard
       @paragraph = Paragraph.new(paragraph_params)
 
       if @paragraph.save
-        flash[:notice] = t(:created_successfully)
-        redirect_to dashboard_paragraphs_path
+        redirect_to dashboard_paragraphs_path, notice: t(:created_successfully)
       else
         flash[:error] = t(:something_went_wrong)
         render :create
       end
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
       if @paragraph.update(paragraph_params)
-        flash[:notice] = t(:updated_successfully)
-        redirect_to dashboard_paragraphs_path
+        redirect_to dashboard_paragraphs_path, notice: t(:updated_successfully)
       else
         flash[:error] = t(:something_went_wrong)
         render :edit
@@ -34,9 +31,8 @@ module Dashboard
     end
 
     def destroy
-      @paragraph.delete
-      redirect_to dashboard_paragraphs_path
-      flash[:notice] = t(:record_deleted)
+      @paragraph.destroy!
+      redirect_to dashboard_paragraphs_path, notice: t(:record_deleted)
     end
 
     private
