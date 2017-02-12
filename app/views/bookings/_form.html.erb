@@ -1,24 +1,54 @@
 <%= form_for @booking do |f| %>
   <div class='form-group'>
-    <%= f.label :reserved_at, t(:reserved_at) %>
-    <%= f.datetime_select :reserved_at, { order: [:day, :month, :year] } %>
+    <%= f.label :reserved_at, t(:date_and_time_of_reservation) %>
+
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon2">
+        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+      </span>
+
+      <%= f.datetime_select :reserved_at, {
+            order: [:day, :month, :year],
+            datetime_separator: '',
+            time_separator: ''
+          }, class: 'form-control' %>
+    </div>
   </div>
 
   <div class='form-group'>
     <%= f.label :first_name, t(:first_name) %>
-    <%= f.text_field :first_name, placeholder: t(:first_name), class: 'form-control' %>
-
     <%= f.label :last_name, t(:last_name) %>
-    <%= f.text_field :last_name, placeholder: t(:last_name), class: 'form-control' %>
+
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon2">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      </span>
+      <%= f.text_field :first_name, placeholder: t(:first_name), class: 'form-control' %>
+      <%= f.text_field :last_name, placeholder: t(:last_name), class: 'form-control' %>
+    </div>
   </div>
 
   <div class='form-group'>
     <%= f.label :phone, t(:phone) %>
-    <%= f.text_field :phone, placeholder: t(:phone), class: 'form-control' %>
-
-    <%= f.label :additional_info, t(:additional_info) %>
-    <%= f.text_area :additional_info, placeholder: t(:additional_info), class: 'form-control' %>
+    <div class='input-group'>
+      <span class="input-group-addon" id="sizing-addon2">
+        <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+      </span>
+      <%= f.text_field :phone, placeholder: t(:phone), class: 'form-control' %>
+    </div>
   </div>
 
-  <%= f.submit class: 'btn btn-warning btn-lg' %>
+  <div class='form-group'>
+    <%= f.label :additional_info, t(:additional_info) %>
+    <div class='input-group'>
+      <span class="input-group-addon" id="sizing-addon2">
+        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+      </span>
+      <%= f.text_area :additional_info, placeholder: t(:additional_info), class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <%= f.submit class: 'btn btn-warning btn-lg' %>
+  </div>
 <% end %>
