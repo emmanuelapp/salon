@@ -7,10 +7,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
 
     if @booking.save
-      flash[:notice] = t(:created_successfully)
-      redirect_to new_front_booking_path
+      redirect_to new_booking_path, notice: t(:created_successfully)
     else
-      flash[:error] = t(:something_went_wrong)
+      flash[:notice] = t(:something_went_wrong)
       render :new
     end
   end

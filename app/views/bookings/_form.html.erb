@@ -9,8 +9,13 @@
           <span class="input-group-addon" id="sizing-addon2">
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
           </span>
-          <%= f.text_field :first_name, placeholder: t(:first_name), class: 'form-control' %>
-          <%= f.text_field :last_name, placeholder: t(:last_name), class: 'form-control' %>
+          <%= f.text_field :first_name, placeholder: t(:first_name),
+                                        class: 'form-control',
+                                        required: true %>
+
+          <%= f.text_field :last_name, placeholder: t(:last_name),
+                                       class: 'form-control',
+                                       required: true %>
         </div>
       </div>
 
@@ -20,7 +25,9 @@
           <span class="input-group-addon" id="sizing-addon2">
             <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
           </span>
-          <%= f.text_field :phone, placeholder: t(:phone), class: 'form-control' %>
+          <%= f.text_field :phone, placeholder: t(:phone),
+                                   class: 'form-control',
+                                   required: true %>
         </div>
       </div>
     </div>
@@ -49,7 +56,8 @@
 
                 datetime_separator: '',
                 time_separator: ''
-              }, class: 'form-control' %>
+              }, class: 'form-control',
+                 required: true %>
         </div>
       </div>
     </div>
@@ -62,7 +70,8 @@
             <span class="input-group-addon" id="sizing-addon2">
               <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
             </span>
-            <%= f.text_area :additional_info, placeholder: t(:additional_info), class: 'form-control' %>
+            <%= f.text_area :additional_info, placeholder: t(:additional_info),
+                                              class: 'form-control' %>
           </div>
         </div>
 
