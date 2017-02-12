@@ -1,4 +1,3 @@
 class DetailsController < ApplicationController
-  def index
-  end
+  def index; end
 end
