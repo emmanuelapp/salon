@@ -1,9 +1,9 @@
 <%= form_for @booking do |f| %>
   <div class='form-group'>
-    <%= f.label :reservation, t(:reservation) %>
+    <%= f.label :reserved_at, t(:reserved_at) %>
 
     <span class='form-control'>
-      <%= f.datetime_select :reservation, { order: [:day, :month, :year] } %>
+      <%= f.datetime_select :reserved_at, { order: [:day, :month, :year] } %>
     </span>
   </div>
 
