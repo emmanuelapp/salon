@@ -33,21 +33,10 @@
         <h1>Dashboard</h1>
 
         <table class='table'>
+          <!-- TODO -->
           <tr>
-            <td>New bookings</td>
-            <td><span class="badge">9</span></td>
-          </tr>
-          <tr>
-            <td>Reservations awaiting your review</td>
-            <td><span class="badge">4</span></td>
-          </tr>
-          <tr>
-            <td>Reservations finalized</td>
-            <td><span class="badge">24</span></td>
-          </tr>
-          <tr>
-            <td>Reservations for this week</td>
-            <td><span class="badge">14</span></td>
+            <td>All bookings</td>
+            <td><span class="badge"><%= Booking.count %></span></td>
           </tr>
         </table>
 

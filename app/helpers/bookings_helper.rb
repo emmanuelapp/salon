@@ -33,4 +33,8 @@ module BookingsHelper
       required: true
     }
   end
+
+  def full_name(booking)
+    "#{booking.first_name} #{booking.last_name}"
+  end
 end
