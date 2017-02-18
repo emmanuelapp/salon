@@ -1,0 +1,40 @@
+<%= link_to 'Previous', '#', class: 'btn btn-warning btn-sx' %>
+<%= link_to 'APPROVE', '#', class: 'btn btn-danger btn-sx' %>
+<%= link_to 'Next', '#', class: 'btn btn-warning btn-sx' %>
+
+<div class='well'>
+  <table class='table'>
+    <tr>
+      <th>First Name</th>
+      <td><%= @booking.first_name %></td>
+    </tr>
+    <tr>
+      <th>Last Name</th>
+      <td><%= @booking.last_name %></td>
+    </tr>
+    <tr>
+      <th>Phone</th>
+      <td><%= @booking.phone %></td>
+    </tr>
+    <tr>
+      <th>Reservation</th>
+      <td><%= @booking.reservation %></td>
+    </tr>
+    <tr>
+      <th>Reserved At</th>
+      <td><%= @booking.reserved_at %></td>
+    </tr>
+    <tr>
+      <th>Approved</th>
+      <td><h4><span class="label label-info"><%= @booking.approved %></span></h4></td>
+    </tr>
+    <tr>
+      <th>Booking ID</th>
+      <td><%= @booking.id %></td>
+    </tr>
+    <tr>
+      <th>Additional Info</th>
+      <td><%= @booking.additional_info %></td>
+    </tr>
+  </table>
+</div>

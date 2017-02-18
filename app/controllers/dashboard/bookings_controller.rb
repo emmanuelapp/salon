@@ -13,7 +13,7 @@ module Dashboard
     end
 
     def show
-      # TODO
+      @booking = Booking.find(params[:id])
     end
 
     def edit
