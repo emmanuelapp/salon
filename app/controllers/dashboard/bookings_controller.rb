@@ -1,7 +1,7 @@
 module Dashboard
   class BookingsController < AdminController
     def index
-      @bookings = Booking.all
+      @bookings = Booking.order('bookings.reserved_at DESC')
     end
 
     def new
