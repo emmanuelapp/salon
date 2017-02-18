@@ -18,15 +18,12 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(
-      :id,
       :first_name,
       :last_name,
       :phone,
       :approved,
       :additional_info,
-      :created_at,
-      :updated_at,
-      :reservation
+      :reserved_at
     )
   end
 end
