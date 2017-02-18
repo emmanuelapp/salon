@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     resources :members, except: [:show]
     resources :offers, except: [:show]
     resources :paragraphs, except: [:show]
-    resources :bookings
+
+    resources :bookings do
+      resources :approvals, only: :create
+    end
   end
 end

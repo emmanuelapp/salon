@@ -26,3 +26,5 @@ en:
   password: "Password"
   log_in: 'Log in'
   submit: 'Submit'
+  booking_approved: 'Booking approved'
+  approve: 'Approve'

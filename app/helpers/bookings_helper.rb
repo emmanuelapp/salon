@@ -34,6 +34,13 @@ module BookingsHelper
     }
   end
 
+  def approve_path
+    link_to t(:approve),
+            dashboard_booking_approvals_path(params[:id]),
+            class: 'btn btn-danger btn-sx',
+            method: :post
+  end
+
   def full_name(booking)
     "#{booking.first_name} #{booking.last_name}"
   end
