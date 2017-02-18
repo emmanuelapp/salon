@@ -1,16 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-User.create(email: 'user@example.com', password: 'secret')
-User.create(email: 'user2@example.com', password: 'secret')
+User.create!(email: 'user@example.com', password: 'secret')
+User.create!(email: 'user2@example.com', password: 'secret')
 
 10.times do
-  Paragraph.create(
+  Paragraph.create!(
     title: 'Lorem ipsum dolor sit amet',
     body: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.
            Cu timeam prodesset vis. Cu dicant vituperatoribus mei, solum paulo mel an, autem sanctus suavitate ius ut. Ex usu sale labore efficiendi, mei in nisl iisque aliquando. At est solet dissentias, mollis labores vivendo at vim. Eius natum vis ne, an possim prodesset nec.
@@ -21,7 +13,7 @@ User.create(email: 'user2@example.com', password: 'secret')
 end
 
 32.times do
-  Offer.create(
+  Offer.create!(
     description: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.',
     name: 'Massage',
     price: 12.99
@@ -29,11 +21,20 @@ end
 end
 
 12.times do
-  Member.create(
+  Member.create!(
     first_name: 'John',
     last_name: 'Doe',
     profession: 'Mambo Jambo',
     description: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.',
     phone_number: '00123456789'
+  )
+end
+
+40.times do |i|
+  Booking.create!(
+    phone: '0000000000',
+    last_name: 'Daniels',
+    first_name: 'Jack',
+    reserved_at: Date.today + i.days
   )
 end
