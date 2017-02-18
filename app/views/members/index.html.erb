@@ -1,6 +1,7 @@
 <div class='container'>
   <div class='row'>
     <h3><%= t(:team) %></h3>
+    <%= no_content_message(@members) %>
     <%= render @members %>
   </div>
 </div>
