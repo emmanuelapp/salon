@@ -11,9 +11,7 @@ RSpec.describe Member, type: :model do
     end
 
     context 'when first_name is nil' do
-      let(:attributes) { attributes_for(:member).merge(first_name: nil) }
-
-      subject { described_class.new(attributes) }
+      subject { build(:member, first_name: nil) }
 
       it 'is invalid' do
         error = ['First name can\'t be blank']
@@ -25,9 +23,7 @@ RSpec.describe Member, type: :model do
     end
 
     context 'when last_name is nil' do
-      let(:attributes) { attributes_for(:member).merge(last_name: nil) }
-
-      subject { described_class.new(attributes) }
+      subject { build(:member, last_name: nil) }
 
       it 'is invalid' do
         error = ['Last name can\'t be blank']
@@ -39,9 +35,7 @@ RSpec.describe Member, type: :model do
     end
 
     context 'when description is nil' do
-      let(:attributes) { attributes_for(:member).merge(description: nil) }
-
-      subject { described_class.new(attributes) }
+      subject { build(:member, description: nil) }
 
       it 'is invalid' do
         error = ['Description can\'t be blank']
@@ -53,9 +47,7 @@ RSpec.describe Member, type: :model do
     end
 
     context 'when profession is nil' do
-      let(:attributes) { attributes_for(:member).merge(profession: nil) }
-
-      subject { described_class.new(attributes) }
+      subject { build(:member, profession: nil) }
 
       it 'is invalid' do
         error = ['Profession can\'t be blank']
