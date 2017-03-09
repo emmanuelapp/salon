@@ -1,30 +1,30 @@
 source 'https://rubygems.org'
 
 gem 'puma'
-gem 'rails', '~> 5.0.0'
+gem 'rails'
 
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 gem 'devise'
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 gem 'jquery-rails'
-gem 'paperclip', '~> 5.0.0'
+gem 'paperclip'
 gem 'pg'
 gem 'react-rails'
 gem 'rubocop'
-gem 'sass-rails', '~> 5.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sass-rails'
+gem 'sdoc', group: :doc
 gem 'turbolinks'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'rails-controller-testing'
-  gem 'rspec-rails', '~> 3.0'
-  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'simplecov'
 end
 
 group :development do
   gem 'spring'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
 end
