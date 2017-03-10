@@ -13,7 +13,7 @@ RSpec.describe OffersHelper, type: :helper do
     context 'when offer price is 123.9' do
       let(:offer) { create(:offer, price: 123.9) }
 
-      it 'returns 124.00 BGN' do
+      it 'returns 123.90 BGN' do
         expect(helper.format_price(offer)).to eq '123.90 BGN'
       end
     end
