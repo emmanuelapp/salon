@@ -58,4 +58,14 @@ RSpec.describe Member, type: :model do
       end
     end
   end
+
+  describe '#full_name' do
+    context 'when user is named Jack Daniels' do
+      subject { create(:member) }
+
+      it 'returns Jack Daniels' do
+        expect(subject.full_name).to eq 'Jack Daniels'
+      end
+    end
+  end
 end
