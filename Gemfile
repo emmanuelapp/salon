@@ -15,13 +15,13 @@ gem 'sass-rails'
 gem 'sdoc', group: :doc
 gem 'turbolinks'
 gem 'uglifier'
+gem 'simplecov'
 
 group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'simplecov'
 end
 
 group :development do
