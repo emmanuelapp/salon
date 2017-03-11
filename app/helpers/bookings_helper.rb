@@ -6,10 +6,12 @@ module BookingsHelper
   end
 
   def reserved_at_options
+    year = Time.now.year
+
     {
       order: [:day, :month, :year],
-      start_year: Time.now.year,
-      end_year: Time.now.year + 1,
+      start_year: year,
+      end_year: year + 1,
       prompt: reserved_at_prompt,
       datetime_separator: '',
       time_separator: '',
