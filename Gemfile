@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'puma'
-gem 'rails'
-
 gem 'coffee-rails'
 gem 'devise'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'paperclip'
 gem 'pg'
+gem 'puma'
+gem 'rails'
 gem 'react-rails'
 gem 'rubocop'
 gem 'sass-rails'
