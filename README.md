@@ -1,8 +1,8 @@
 # Salon
-##About
-This is a RoR solution for beauty salons. Currently this project is unfinished and it is under development.
 
-Author: Georgi N. Kostov
+Currently this project is under development.
 
-## Usage
-TODO
+## About
+A Ruby on Rails booking system which aims to meet the requirements of small Beauty salons and Hairdressing salons.
+
+TODO: Write more verbose README
