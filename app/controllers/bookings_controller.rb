@@ -1,10 +1,12 @@
+require_dependency './app/forms/booking_form'
+
 class BookingsController < ApplicationController
   def new
-    @booking = Booking.new
+    @booking = BookingForm.new
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = BookingForm.new(booking_params)
 
     if @booking.save
       redirect_to new_booking_path, notice: t(:created_successfully)
