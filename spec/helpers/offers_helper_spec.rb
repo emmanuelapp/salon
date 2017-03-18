@@ -17,5 +17,13 @@ RSpec.describe OffersHelper, type: :helper do
         expect(helper.format_price(offer)).to eq '123.90 BGN'
       end
     end
+
+    context 'when offer price is empty' do
+      let(:offer) { create(:offer) }
+
+      it 'returns 0.00 BGN' do
+        expect(helper.format_price(offer)).to eq '0.00 BGN'
+      end
+    end
   end
 end
