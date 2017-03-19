@@ -1,7 +1,11 @@
 module Dashboard
+  # :nodoc:
   class BookingsController < AdminController
     def index
-      @bookings = Booking.order('bookings.reserved_at DESC')
+      render component: 'BookingsBoard', props: {
+        approved: Booking.approved.order_by_desc,
+        not_approved: Booking.not_approved.order_by_desc
+      }
     end
 
     def new
