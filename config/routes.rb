@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :offers, except: [:show]
     resources :paragraphs, except: [:show]
 
+    resources :booking_weeks, only: [:index]
+
     resources :bookings do
       resources :approvals, only: :create
     end
