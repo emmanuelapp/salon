@@ -5,6 +5,7 @@ class BookingCard extends React.Component {
     let phone = this.props.user.phone;
     let reserved_at = this.props.user.reserved_at;
     let approved = this.props.user.approved;
+    let additionalInfo = this.props.user.additional_info;
 
     let statusBadge;
 
@@ -21,14 +22,14 @@ class BookingCard extends React.Component {
 
             <p><b>Full name:</b> {first_name} {last_name}</p>
             <p><b>Phone:</b> {phone}</p>
-            <p><b>Reserved for:</b> {reserved_at}</p>
             <p>{statusBadge}</p>
           </div>
 
           <div className='col-lg-8'>
+            <p><b>Reserved for:</b> {reserved_at}</p>
             <h5>Additional Info:</h5>
             <div className='well well-sm'>
-              {this.props.user.additional_info}
+              {additionalInfo === null ? <i>Empty</i> : additionalInfo}
             </div>
           </div>
 
