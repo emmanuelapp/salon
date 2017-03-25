@@ -16,25 +16,13 @@ class BookingCard extends React.Component {
     }
 
     return(
-      <div className='container'>
-        <div className='row'>
-          <div className='col-lg-4'>
-
-            <p><b>Full name:</b> {first_name} {last_name}</p>
-            <p><b>Phone:</b> {phone}</p>
-            <p>{statusBadge}</p>
-          </div>
-
-          <div className='col-lg-8'>
-            <p><b>Reserved for:</b> {reserved_at}</p>
-            <h5>Additional Info:</h5>
-            <div className='well well-sm'>
-              {additionalInfo === null ? <i>Empty</i> : additionalInfo}
-            </div>
-          </div>
-
-        </div>
-      </div>
+      <tr>
+        <td>{first_name} {last_name}</td>
+        <td>{statusBadge}</td>
+        <td>{phone}</td>
+        <td>{reserved_at}</td>
+        <td>{additionalInfo === null ? <i>Empty</i> : additionalInfo}</td>
+      </tr>
     );
   }
 }

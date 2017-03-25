@@ -3,17 +3,28 @@ class BookingsBoard extends React.Component {
     let approved = this.props.approved;
     let notApproved = this.props.not_approved;
 
-    let cards = approved.map((booking) => (<BookingCard user={booking}/>));
-    let notApprovedCards = notApproved.map((booking) => (<BookingCard user={booking}/>));
-
     return(
-      <div>
-        <h1>All Bookings</h1>
-        <h4>Pending</h4>
-        {notApprovedCards}
-        <h4>Approved</h4>
-        {cards}
-      </div>
+      <table className='table'>
+        <thead>
+          <tr>
+            <th>Full name</th>
+            <th>State</th>
+            <th>Phone</th>
+            <th>Reservation Date</th>
+            <th>Additional Info</th>
+          </tr>
+        </thead>
+
+        <tr>
+          <th colSpan={5}>Pending</th>
+        </tr>
+        {notApproved.map((booking) => (<BookingCard user={booking}/>))}
+
+        <tr>
+          <th colSpan={5}>Approved</th>
+        </tr>
+        {approved.map((booking) => (<BookingCard user={booking}/>))}
+      </table>
     );
   }
 }
