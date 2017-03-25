@@ -1,8 +1,15 @@
 class BookingsBoard extends React.Component {
-  render () {
-    let approved = this.props.approved;
-    let notApproved = this.props.not_approved;
+  constructor(props) {
+    super(props);
 
+    this.bookingCards = this.bookingCards.bind(this);
+  }
+
+  bookingCards(cards) {
+    return(cards.map((booking) => (<BookingCard user={booking}/>)));
+  }
+
+  render() {
     return(
       <table className='table'>
         <thead>
@@ -15,15 +22,17 @@ class BookingsBoard extends React.Component {
           </tr>
         </thead>
 
-        <tr>
-          <th colSpan={5}>Pending</th>
-        </tr>
-        {notApproved.map((booking) => (<BookingCard user={booking}/>))}
+        <tbody>
+          <tr>
+            <th colSpan={5}>Pending</th>
+          </tr>
+          {this.bookingCards(this.props.notApproved)}
 
-        <tr>
-          <th colSpan={5}>Approved</th>
-        </tr>
-        {approved.map((booking) => (<BookingCard user={booking}/>))}
+          <tr>
+            <th colSpan={5}>Approved</th>
+          </tr>
+          {this.bookingCards(this.props.approved)}
+        </tbody>
       </table>
     );
   }

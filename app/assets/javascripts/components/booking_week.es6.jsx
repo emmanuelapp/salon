@@ -1,10 +1,21 @@
 class BookingWeek extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.cards = this.cards.bind(this);
+  }
+
+  cards() {
+    return(this.props.thisWeek.map((booking) =>
+      <BookingCard user={booking}/>
+    ));
+  }
+
   render () {
     return(
-      <div>
-        <h4>This Week</h4>
-        {this.props.this_week.map((booking) => <BookingCard user={booking}/>)}
-      </div>
+      <table className='table'>
+        {this.cards()}
+      </table>
     );
   }
 }
