@@ -14,6 +14,7 @@ class BookingsBoard extends React.Component {
       <table className='table'>
         <thead>
           <tr>
+            <th>Edit</th>
             <th>Full name</th>
             <th>State</th>
             <th>Phone</th>
