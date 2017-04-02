@@ -1,43 +1,42 @@
 require 'rails_helper'
 
 RSpec.describe Booking, type: :model do
-  describe 'validations' do
-    shared_examples 'an invalid booking instance' do
-      before(:each) { subject.valid? }
+  describe '.by_year' do
+    context 'when year is 2017 and no records are present' do
+      before(:each) { described_class.delete_all }
 
-      subject { build(:booking, attribute => nil) }
-
-      it 'is invalid' do
-        expect(subject).to_not be_valid
-      end
-
-      it 'has the expected error message' do
-        attribute_blank_error = { attribute => ["can't be blank"] }
-        expect(subject.errors.messages).to include(attribute_blank_error)
+      it 'returns an empty collection' do
+        expect(described_class.by_year(2017)).to be_empty
       end
     end
 
-    context 'when first_name is blank' do
-      it_behaves_like 'an invalid booking instance' do
-        let(:attribute) { :first_name }
+    context 'when year is 2017 and records are present' do
+      before(:each) { described_class.create(reserved_at: '2017-01-01-12:12') }
+
+      it 'is not empty' do
+        expect(described_class.by_year(2017)).to_not be_empty
+      end
+    end
+  end
+
+  describe '.by_week' do
+    context 'when no records are present' do
+      before(:each) { described_class.delete_all }
+
+      it 'returns an empty collection' do
+        expect(described_class.by_week(14, 2017)).to be_empty
       end
     end
 
-    context 'when last_name is blank' do
-      it_behaves_like 'an invalid booking instance' do
-        let(:attribute) { :last_name }
-      end
-    end
+    context 'when records are present' do
+      before(:each) { described_class.create(reserved_at: '2017-01-04-12:12') }
 
-    context 'when reserved_at is blank' do
-      it_behaves_like 'an invalid booking instance' do
-        let(:attribute) { :reserved_at }
+      it 'has a record from week 1' do
+        expect(described_class.pluck(:week_number)).to include(1)
       end
-    end
 
-    context 'when phone is blank' do
-      it_behaves_like 'an invalid booking instance' do
-        let(:attribute) { :phone }
+      it 'is not empty' do
+        expect(described_class.by_week(1, 2017)).to_not be_empty
       end
     end
   end

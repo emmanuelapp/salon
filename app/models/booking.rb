@@ -7,14 +7,10 @@ class Booking < ApplicationRecord
 
   scope :confirmed, -> { where(confirmed: true) }
   scope :pending, -> { where(confirmed: false) }
-  scope :order_by_desc, -> { order('BOOKINGS.reserved_at DESC') }
-  scope :reserved_after, ->(dt) { where('BOOKINGS.reserved_at >= ?', dt.at_beginning_of_day) }
-  scope :reserved_before, ->(dt) { where('BOOKINGS.reserved_at <= ?', dt.at_end_of_day) }
+  scope :order_by_desc, -> { order('bookings.reserved_at DESC') }
 
-  def self.this_week
-    week_range = Date.today.all_week
-    confirmed.reserved_after(week_range.first).reserved_before(week_range.last)
-  end
+  scope :by_year, ->(year) { where('extract(year from bookings.reserved_at) = ?', year) }
+  scope :by_week, ->(week, year) { where(week_number: week).by_year(year) }
 
   before_save :determine_week_number
 

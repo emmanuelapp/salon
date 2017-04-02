@@ -85,8 +85,8 @@ RSpec.describe BookingForm do
         }
       end
 
-      it 'is invalid' do
-        expect(subject).to be_invalid
+      it 'is valid' do
+        expect(subject).to be_valid
       end
     end
 

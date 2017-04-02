@@ -2,7 +2,9 @@ module Dashboard
   module Bookings
     class WeeksController < AdminController
       def show
-        render plain: 'TODO: Show bookings for a single week'
+        @bookings = Booking.by_week(params[:week_number], params[:booking_year])
+
+        render plain: @bookings.inspect
       end
 
       def index
