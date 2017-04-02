@@ -17,7 +17,6 @@ class BookingForm
   validates :first_name,      presence: true
   validates :last_name,       presence: true
   validates :phone,           presence: true
-  validates :additional_info, presence: true
 
   def initialize(attributes = {})
     @booking = Booking.new(attributes)
