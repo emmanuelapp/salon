@@ -8,6 +8,7 @@ class CreateBookings < ActiveRecord::Migration[5.0]
 
       t.boolean  :confirmed, default: false
       t.datetime :reserved_at, null: false
+      t.integer  :week_number
 
       t.timestamps
     end

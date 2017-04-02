@@ -19,9 +19,10 @@ ActiveRecord::Schema.define(version: 20170212111119) do
     t.string   "first_name",      default: "",    null: false
     t.string   "last_name",       default: "",    null: false
     t.string   "phone",           default: "",    null: false
-    t.text     "additional_info", default: "",    null: false
+    t.text     "additional_info", default: ""
     t.boolean  "confirmed",       default: false
     t.datetime "reserved_at",                     null: false
+    t.integer  "week_number"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end

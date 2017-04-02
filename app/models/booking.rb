@@ -15,4 +15,12 @@ class Booking < ApplicationRecord
     week_range = Date.today.all_week
     confirmed.reserved_after(week_range.first).reserved_before(week_range.last)
   end
+
+  before_save :determine_week_number
+
+  private
+
+  def determine_week_number
+    self.week_number = reserved_at.strftime('%W')
+  end
 end
