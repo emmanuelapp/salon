@@ -1,5 +1,9 @@
 require 'simplecov'
-SimpleCov.start 'rails'
+
+SimpleCov.start 'rails' do
+  add_group 'Dashboard controllers', './app/controllers/dashboard'
+  add_group 'Form object classes', './app/forms'
+end
 
 ENV['RAILS_ENV'] ||= 'test'
 
