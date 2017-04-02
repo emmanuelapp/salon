@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
     resources :booking_weeks, only: [:index]
 
+    resources :bookings, param: :year do
+      resources :weeks, param: :week_number, controller: 'bookings/weeks'
+    end
+
     resources :bookings do
       resources :approvals, only: :create
     end
