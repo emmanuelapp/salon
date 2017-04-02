@@ -1,15 +1,15 @@
 module Dashboard
   # This controller holds the responsibility of changing
-  # the flag Booking#approved to true. TODO: Define a controller
+  # the flag Booking#confirmed to true. TODO: Define a controller
   # which handles both approvals and cancellations.
   class ApprovalsController < AdminController
     before_action :find_booking, only: :create
 
     def create
-      @booking.approved = true
+      @booking.confirmed = true
 
       if @booking.save
-        flash[:notice] = t(:booking_approved)
+        flash[:notice] = t(:booking_confirmed)
       else
         flash[:error] = t(:something_went_wrong)
       end

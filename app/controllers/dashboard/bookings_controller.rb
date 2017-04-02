@@ -3,8 +3,8 @@ module Dashboard
   class BookingsController < AdminController
     def index
       render component: 'BookingsBoard', props: {
-        approved: Booking.approved.order_by_desc,
-        not_approved: Booking.not_approved.order_by_desc
+        confirmed: Booking.confirmed.order_by_desc,
+        pending: Booking.pending.order_by_desc
       }
     end
 

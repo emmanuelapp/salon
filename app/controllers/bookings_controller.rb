@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
       :first_name,
       :last_name,
       :phone,
-      :approved,
+      :confirmed,
       :additional_info,
       :reserved_at
     )

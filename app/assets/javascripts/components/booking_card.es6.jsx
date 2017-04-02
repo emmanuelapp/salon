@@ -9,8 +9,8 @@ class BookingCard extends React.Component {
   }
 
   statusBadge() {
-    if(this.props.user.approved) {
-      state = 'APPROVED';
+    if(this.props.user.confirmed) {
+      state = 'CONFIRMED';
       klazz = 'btn btn-success btn-xs';
     } else {
       state = 'PENDING';

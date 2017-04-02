@@ -27,12 +27,12 @@ class BookingsBoard extends React.Component {
           <tr>
             <th colSpan={5}>Pending</th>
           </tr>
-          {this.bookingCards(this.props.notApproved)}
+          {this.bookingCards(this.props.pending)}
 
           <tr>
-            <th colSpan={5}>Approved</th>
+            <th colSpan={5}>Confirmed</th>
           </tr>
-          {this.bookingCards(this.props.approved)}
+          {this.bookingCards(this.props.confirmed)}
         </tbody>
       </table>
     );
