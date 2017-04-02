@@ -4,7 +4,9 @@ module Dashboard
       def show
         @bookings = Booking.by_week(params[:week_number], params[:booking_year])
 
-        render plain: @bookings.inspect
+        render component: 'WeekBoard', props: {
+          daily_bookings: @bookings.by_days.to_a
+        }
       end
 
       def index

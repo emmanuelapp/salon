@@ -12,6 +12,8 @@ class Booking < ApplicationRecord
   scope :by_year, ->(year) { where('extract(year from bookings.reserved_at) = ?', year) }
   scope :by_week, ->(week, year) { where(week_number: week).by_year(year) }
 
+  scope :by_days, -> { all.group_by { |booking| booking.reserved_at.to_date } }
+
   before_save :determine_week_number
 
   private
