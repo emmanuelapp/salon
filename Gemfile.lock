@@ -259,7 +259,6 @@ DEPENDENCIES
   factory_girl_rails
   jbuilder
   jquery-rails
-  json (~> 2.0)
   paperclip
   pg
   puma
