@@ -2,11 +2,12 @@ module Dashboard
   module Bookings
     class WeeksController < AdminController
       def show
-        @bookings = Booking.by_week(params[:week_number], params[:booking_year])
+        week = params[:week_number]
+        year = params[:booking_year]
 
-        render component: 'WeekBoard', props: {
-          daily_bookings: @bookings.by_days.to_a
-        }
+        @bookings = Booking.by_week(week, year).by_days
+
+        render component: 'WeekBoard', props: { daily_bookings: @bookings }
       end
 
       def index
