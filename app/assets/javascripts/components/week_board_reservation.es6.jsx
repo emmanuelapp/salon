@@ -1,18 +1,4 @@
 class WeekBoardReservation extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      showAdditionalInfo: false
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    alert('TODO: show additional_info data');
-  }
-
   render () {
     let firstName = this.props.booking.first_name;
     let lastName = this.props.booking.last_name;
@@ -20,11 +6,13 @@ class WeekBoardReservation extends React.Component {
 
     return(
       <td className='well'>
-        <p><b>{firstName} {lastName}</b></p>
-        <p><span className="label label-warning">{reservedAt}</span></p>
+        <p><b>{firstName}</b></p>
+        <p><b>{lastName}</b></p>
         <p>ID: {this.props.booking.id}</p>
+
+        <p><span className="label label-warning">{reservedAt}</span></p>
         
-        <a onClick={this.handleClick} className='btn btn-info btn-xs btn-block'>info</a>
+        <a href={'/dashboard/bookings/' + this.props.booking.id} className='btn btn-info btn-xs btn-block'>info</a>
       </td>
     );
   }

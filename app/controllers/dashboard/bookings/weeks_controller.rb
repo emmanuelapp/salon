@@ -5,7 +5,14 @@ module Dashboard
         week = params[:week_number]
         year = params[:booking_year]
 
-        @bookings = Booking.by_week(week, year).by_days
+        # START TODO: Extract
+        @bookings = Booking.includes(:reservations)
+                           .includes(:offers)
+                           .by_week(week, year)
+                           .by_days
+
+        # Show only confirmed Bookings
+        # END TODO
 
         render component: 'WeekBoard', props: { daily_bookings: @bookings }
       end
