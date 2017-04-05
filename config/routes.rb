@@ -4,15 +4,16 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'dashboard/offers#index'
 
-  resources :members, only: [:index]
   resources :paragraphs, only: [:index], path: 'about'
-  resources :offers, only: [:index]
-  resources :details, only: [:index]
-  resources :bookings, only: [:new, :create]
+  resources :members,    only: [:index]
+  resources :details,    only: [:index]
+  resources :offers,     only: [:index]
+
+  resources :bookings,   only: %i(new create index)
 
   namespace :dashboard do
-    resources :members, except: [:show]
-    resources :offers, except: [:show]
+    resources :members,    except: [:show]
+    resources :offers,     except: [:show]
     resources :paragraphs, except: [:show]
 
     resources :booking_weeks, only: [:index]
