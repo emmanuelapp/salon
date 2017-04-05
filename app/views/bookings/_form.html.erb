@@ -21,6 +21,7 @@
 
       <div class='form-group'>
         <%= f.label :phone, t(:phone) %>
+
         <div class='input-group'>
           <span class="input-group-addon" id="sizing-addon2">
             <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
@@ -28,6 +29,23 @@
           <%= f.text_field :phone, placeholder: t(:phone),
                                    class: 'form-control',
                                    required: true %>
+        </div>
+      </div>
+
+      <div class='form-group'>
+        <%= f.label :offer, t(:offer) %>
+
+        <div class='input-group'>
+          <span class="input-group-addon" id="sizing-addon2">
+            <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+          </span>
+
+          <%= f.select(
+                :offer_ids,
+                Offer.all.map { |offer| [offer.to_s, offer.id] },
+                { placeholder: t(:offer), prompt: true },
+                { class: 'form-control', multiple: true }) %>
+
         </div>
       </div>
     </div>

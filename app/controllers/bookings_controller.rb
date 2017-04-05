@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = BookingForm.new(booking_params)
+    @booking = BookingForm.new(params)
 
     if @booking.save
       redirect_to new_booking_path, notice: t(:created_successfully)
@@ -14,18 +14,5 @@ class BookingsController < ApplicationController
       flash[:notice] = t(:something_went_wrong)
       render :new
     end
-  end
-
-  private
-
-  def booking_params
-    params.require(:booking).permit(
-      :first_name,
-      :last_name,
-      :phone,
-      :confirmed,
-      :additional_info,
-      :reserved_at
-    )
   end
 end
