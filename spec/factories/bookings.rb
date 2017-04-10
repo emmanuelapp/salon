@@ -6,5 +6,6 @@ FactoryGirl.define do
     approved false
     additional_info 'Lorem Ipsum'
     reserved_at Date.tomorrow
+    offer_ids [1, 2, 3]
   end
 end
