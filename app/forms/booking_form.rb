@@ -22,7 +22,7 @@ class BookingForm
 
   validates :offer_ids,       with: :order_ids?
 
-  def initialize(params = ActiveSupport::HashWithIndifferentAccess.new)
+  def initialize(params = ActionController::Parameters.new)
     @params    = params
     @booking   = Booking.new(booking_params)
 
@@ -35,6 +35,12 @@ class BookingForm
     return false unless booking.valid?
     return false unless valid?
 
+    persist
+  end
+
+  private
+
+  def persist
     ActiveRecord::Base.transaction do
       booking.save!
 
@@ -44,16 +50,14 @@ class BookingForm
     end
   end
 
-  private
-
   def order_ids?
-    return false if offer_ids.any?
+    return false if offer_ids.to_h.any?
 
     errors.add(:offer_ids, 'array is empty')
   end
 
   def booking_params
-    return ActiveSupport::HashWithIndifferentAccess.new if params.empty?
+    return ActionController::Parameters.new if params.empty?
 
     params.require(:booking).permit(
       :first_name,
