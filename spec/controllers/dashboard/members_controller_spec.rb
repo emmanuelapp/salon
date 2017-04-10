@@ -27,6 +27,36 @@ RSpec.describe Dashboard::MembersController, type: :controller do
     end
   end
 
+  describe 'DELETE #destroy' do
+    let!(:member) { create(:member) }
+
+    context 'when user is logged in' do
+      login_user
+
+      subject { delete :destroy, id: member.id }
+
+      it 'decrements the Member rows count by one' do
+        expect { subject }.to change { Member.count }.by(-1)
+      end
+
+      it 'redirects to dashboard_members_path' do
+        expect(subject).to redirect_to dashboard_members_path
+      end
+    end
+
+    context 'when user is not logged in' do
+      subject { delete :destroy, id: member.id }
+
+      it 'does not change the Member rows count' do
+        expect { subject }.to change { Member.count }.by(0)
+      end
+
+      it 'redirects to new_user_session_path' do
+        expect(subject).to redirect_to new_user_session_path
+      end
+    end
+  end
+
   describe 'GET #new' do
     subject { get :new }
 
