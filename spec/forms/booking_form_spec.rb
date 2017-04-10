@@ -28,7 +28,7 @@ RSpec.describe BookingForm do
         }
       end
 
-      it 'is invalid' do
+      xit 'is invalid' do
         expect(subject).to be_invalid
       end
     end
@@ -47,7 +47,7 @@ RSpec.describe BookingForm do
         }
       end
 
-      it 'is invalid' do
+      xit 'is invalid' do
         expect(subject).to be_invalid
       end
     end
@@ -66,7 +66,7 @@ RSpec.describe BookingForm do
         }
       end
 
-      it 'is invalid' do
+      xit 'is invalid' do
         expect(subject).to be_invalid
       end
     end
@@ -85,7 +85,7 @@ RSpec.describe BookingForm do
         }
       end
 
-      it 'is valid' do
+      xit 'is valid' do
         expect(subject).to be_valid
       end
     end
@@ -105,7 +105,7 @@ RSpec.describe BookingForm do
         }
       end
 
-      it 'is valid' do
+      xit 'is valid' do
         expect(subject).to be_valid
       end
     end
