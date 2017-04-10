@@ -135,7 +135,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
     end
 
     context 'when the user is logged in and submits invalid data' do
-      subject { post :create, params: { member: attributes_for(:invalid_member) } }
+      subject { post :create, params: { member: attributes_for(:member, first_name: nil) } }
 
       login_user
 
@@ -176,7 +176,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
       end
 
       it 'chenges @member' do
-        expect { subject }.to change { @member.reload.profession }
+        expect { subject }.to(change { @member.reload.profession })
       end
 
       it 'redirects to /dashboard/members' do
@@ -188,25 +188,17 @@ RSpec.describe Dashboard::MembersController, type: :controller do
       end
     end
 
-    context 'when the user is logged in and submits invalid data' do
+    context 'when first_name is nil' do
+      login_user
+
       subject do
         put :update, params: {
-          id: @member.id, member: attributes_for(:invalid_member)
+          id: @member.id, member: { profession: 'Barber', first_name: nil }
         }
       end
 
-      login_user
-
-      it 'does not change Member.count' do
-        expect { subject }.to_not change { @member }
-      end
-
-      it 'redirects to /dashboard/members' do
-        expect(subject).to redirect_to '/dashboard/members'
-      end
-
-      it 'responds with HTTP status 302' do
-        expect(subject).to have_http_status 302
+      it 'renders edit view' do
+        expect(subject).to render_template(:edit)
       end
     end
 
