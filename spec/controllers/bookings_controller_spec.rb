@@ -20,7 +20,8 @@ RSpec.describe BookingsController do
             last_name: 'Daniels',
             phone: '00123456789',
             reserved_at: DateTime.now,
-            additional_info: 'Lorem Ipsum'
+            additional_info: 'Lorem Ipsum',
+            offer_ids: [1, 2, 3]
           }
         }
       end
@@ -49,7 +50,8 @@ RSpec.describe BookingsController do
             first_name: 'Jack',
             last_name: 'Daniels',
             phone: '00123456789',
-            reserved_at: DateTime.now
+            reserved_at: DateTime.now,
+            offer_ids: [1, 2, 3]
           }
         }
       end
@@ -74,7 +76,8 @@ RSpec.describe BookingsController do
             last_name: 'Daniels',
             phone: '00123456789',
             reserved_at: DateTime.now,
-            additional_info: 'Lorem Ipsum'
+            additional_info: 'Lorem Ipsum',
+            offer_ids: [1, 2, 3]
           }
         }
       end
@@ -91,7 +94,8 @@ RSpec.describe BookingsController do
             first_name: 'Jack',
             phone: '00123456789',
             reserved_at: DateTime.now,
-            additional_info: 'Lorem Ipsum'
+            additional_info: 'Lorem Ipsum',
+            offer_ids: [1, 2, 3]
           }
         }
       end
@@ -108,7 +112,8 @@ RSpec.describe BookingsController do
             first_name: 'Jack',
             last_name: 'Daniels',
             reserved_at: DateTime.now,
-            additional_info: 'Lorem Ipsum'
+            additional_info: 'Lorem Ipsum',
+            offer_ids: [1, 2, 3]
           }
         }
       end
@@ -125,6 +130,25 @@ RSpec.describe BookingsController do
             first_name: 'Jack',
             last_name: 'Daniels',
             phone: '00123456789',
+            additional_info: 'Lorem Ipsum',
+            offer_ids: [1, 2, 3]
+          }
+        }
+      end
+
+      it 'renders new' do
+        expect(subject).to render_template(:new)
+      end
+    end
+
+    context 'when user submits invalid due to offer_ids absence' do
+      let(:params) do
+        {
+          booking: {
+            first_name: 'Jack',
+            last_name: 'Daniels',
+            phone: '00123456789',
+            reserved_at: DateTime.now,
             additional_info: 'Lorem Ipsum'
           }
         }

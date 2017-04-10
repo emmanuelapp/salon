@@ -51,7 +51,7 @@ class BookingForm
   end
 
   def order_ids?
-    return false if offer_ids.to_h.any?
+    return false if offer_ids.any?
 
     errors.add(:offer_ids, 'array is empty')
   end
