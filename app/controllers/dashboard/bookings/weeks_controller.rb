@@ -16,18 +16,6 @@ module Dashboard
 
         render component: 'WeekBoard', props: { daily_bookings: @bookings }
       end
-
-      def index
-        render plain: 'TODO: Define a list of weeks'
-      end
-
-      def edit
-        render plain: 'TODO: Edit week bookings (as a kanban board)'
-      end
-
-      def update
-        render plain: 'TODO: Edit week bookings (as a kanban board)'
-      end
     end
   end
 end

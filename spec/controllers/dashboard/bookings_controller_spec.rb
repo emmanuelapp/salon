@@ -1,37 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe Dashboard::BookingsController, type: :controller do
-  describe 'GET #new' do
+  describe 'GET #index' do
+    login_user
+
     it 'returns http success' do
-      get :new
+      get :index
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe 'GET #create' do
-    it 'returns http success' do
-      get :create
-      expect(response).to have_http_status(:success)
-    end
-  end
+  describe 'GET #show' do
+    login_user
 
-  describe 'GET #edit' do
-    it 'returns http success' do
-      get :edit
-      expect(response).to have_http_status(:success)
-    end
-  end
+    let!(:booking) { create(:booking, offer_ids: [create(:offer).id]) }
 
-  describe 'GET #update' do
     it 'returns http success' do
-      get :update
-      expect(response).to have_http_status(:success)
-    end
-  end
+      get :show, params: { id: booking.id }
 
-  describe 'GET #destroy' do
-    it 'returns http success' do
-      get :destroy
       expect(response).to have_http_status(:success)
     end
   end
