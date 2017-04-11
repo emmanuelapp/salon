@@ -2,7 +2,7 @@ module Dashboard
   # :nodoc:
   class MembersController < AdminController
     include Memberable
-    before_action :find_member, only: [:update, :edit, :destroy]
+    before_action :find_member, only: %i[update edit destroy]
 
     def new
       @member = Member.new

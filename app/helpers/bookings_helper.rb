@@ -9,7 +9,7 @@ module BookingsHelper
     year = Time.now.year
 
     {
-      order: [:day, :month, :year],
+      order: %i[day month year],
       start_year: year,
       end_year: year + 1,
       prompt: reserved_at_prompt,

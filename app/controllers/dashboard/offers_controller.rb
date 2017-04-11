@@ -3,7 +3,7 @@ module Dashboard
   class OffersController < AdminController
     include Offerable
 
-    before_action :find_offer, only: [:update, :edit, :destroy]
+    before_action :find_offer, only: %i[update edit destroy]
 
     def new
       @offer = Offer.new

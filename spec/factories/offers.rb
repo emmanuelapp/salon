@@ -8,6 +8,6 @@ FactoryGirl.define do
       name 'Relaxing massage'
     end
 
-    factory :offer_with_name_and_price, traits: [:with_price, :with_name]
+    factory :offer_with_name_and_price, traits: %i[with_price with_name]
   end
 end
