@@ -1,8 +1,9 @@
 # Salon
 
-Currently this project is under development.
+**Currently this project is under development.**
 
 ## About
-A Ruby on Rails booking system which aims to meet the requirements of small Beauty salons and Hairdressing salons.
+`Salon` is a Ruby on Rails solution which is responsible for all processes which could be conducted in a beauty salon, barbershop or anywhere where cosmetic treatments of any sort could be offered and/or applied.
 
-TODO: Write more verbose README
+## Main features
+TODO
