@@ -9,6 +9,14 @@ RSpec.describe BookingsController do
     end
   end
 
+  describe 'GET #index' do
+    subject { get :index }
+
+    it 'redirects' do
+      expect(subject).to have_http_status(302)
+    end
+  end
+
   describe 'POST #create' do
     shared_examples 'a new template rendering' do
       context 'when user submits invalid due to attribute absence' do
