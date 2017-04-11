@@ -15,7 +15,7 @@ module Dashboard
         redirect_to dashboard_paragraphs_path, notice: t(:created_successfully)
       else
         flash[:error] = t(:something_went_wrong)
-        render :create
+        render :new
       end
     end
 

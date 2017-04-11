@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Dashboard::ParagraphsController, type: :controller do
-  let!(:paragraph) do
-    create(:paragraph)
-  end
+  let!(:paragraph) { create(:paragraph) }
 
   describe 'GET #new' do
     context 'when user is loged in' do
@@ -21,8 +19,32 @@ RSpec.describe Dashboard::ParagraphsController, type: :controller do
       login_user
 
       it 'returns http 302' do
-        post :create, params: { paragraph: attributes_for(:paragraph_with_data) }
+        post :create, params: { paragraph: attributes_for(:paragraph) }
         expect(response).to have_http_status(302)
+      end
+    end
+
+    context 'when user is loged in and title is nil' do
+      login_user
+
+      it 'returns http 200' do
+        post :create, params: {
+          paragraph: attributes_for(:paragraph, title: nil)
+        }
+
+        expect(response).to have_http_status(200)
+      end
+    end
+
+    context 'when user is loged in and body is nil' do
+      login_user
+
+      it 'returns http 200' do
+        post :create, params: {
+          paragraph: attributes_for(:paragraph, body: nil)
+        }
+
+        expect(response).to have_http_status(200)
       end
     end
   end
@@ -32,22 +54,49 @@ RSpec.describe Dashboard::ParagraphsController, type: :controller do
       login_user
 
       it 'returns http success' do
-        get :edit, id: paragraph.id
+        get :edit, params: { id: paragraph.id }
         expect(response).to have_http_status(:success)
       end
     end
   end
 
   describe 'PUT #update' do
-    context 'when user is loged in' do
+    context 'when user is loged in and valid data is submited' do
       login_user
 
       it 'returns http 302' do
         put :update, params: {
-          id: paragraph.id, paragraph: attributes_for(:paragraph_with_data)
+          id: paragraph.id,
+          paragraph: attributes_for(:paragraph)
         }
 
         expect(response).to have_http_status(302)
+      end
+    end
+
+    context 'when user is loged in and title is nil' do
+      login_user
+
+      it 'returns http 200' do
+        put :update, params: {
+          id: paragraph.id,
+          paragraph: attributes_for(:paragraph, title: nil)
+        }
+
+        expect(response).to have_http_status(200)
+      end
+    end
+
+    context 'when user is loged in and body is nil' do
+      login_user
+
+      it 'returns http 200' do
+        put :update, params: {
+          id: paragraph.id,
+          paragraph: attributes_for(:paragraph, body: nil)
+        }
+
+        expect(response).to have_http_status(200)
       end
     end
   end
@@ -57,7 +106,7 @@ RSpec.describe Dashboard::ParagraphsController, type: :controller do
       login_user
 
       it 'returns http 302' do
-        delete :destroy, id: paragraph.id
+        delete :destroy, params: { id: paragraph.id }
         expect(response).to have_http_status(302)
       end
     end
