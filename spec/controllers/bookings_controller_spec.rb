@@ -22,7 +22,7 @@ RSpec.describe BookingsController do
       context 'when user submits invalid due to attribute absence' do
         subject do
           post :create, params: {
-            booking: attributes_for(:booking).reject { |k, _| k == attribute }
+            booking: attributes_for(:booking_with_offer_ids).reject { |k, _| k == attribute }
           }
         end
 
@@ -51,7 +51,7 @@ RSpec.describe BookingsController do
     subject { post :create, params: { booking: booking } }
 
     context 'when user submits valid data' do
-      let(:booking) { attributes_for(:booking) }
+      let(:booking) { attributes_for(:booking_with_offer_ids) }
 
       it 'does not render new template as it would on an error' do
         expect(subject).to_not render_template(:new)
@@ -62,7 +62,7 @@ RSpec.describe BookingsController do
     end
 
     context 'when additional_info param is absent' do
-      let(:booking) { attributes_for(:booking, additional_info: nil) }
+      let(:booking) { attributes_for(:booking_with_offer_ids, additional_info: nil) }
 
       it_behaves_like 'a redirection'
       it_behaves_like 'a new DB row'

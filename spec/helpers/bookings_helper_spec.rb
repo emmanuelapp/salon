@@ -14,7 +14,7 @@ RSpec.describe BookingsHelper, type: :helper do
   end
 
   describe '#full_name' do
-    let(:booking) { create(:booking, offer_ids: []) }
+    let(:booking) { create(:booking) }
 
     it 'returns the contatenation of first and last names' do
       expect(helper.full_name(booking)).to eq 'Jack Daniels'
