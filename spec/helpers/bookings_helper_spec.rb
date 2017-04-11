@@ -9,7 +9,7 @@ RSpec.describe BookingsHelper, type: :helper do
 
   describe '#reserved_at_html_options' do
     it 'holds the expected output' do
-      expect(helper.reserved_at_html_options).to eq(class: "form-control", required: true)
+      expect(helper.reserved_at_html_options).to eq(class: 'form-control', required: true)
     end
   end
 
