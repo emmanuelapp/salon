@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Offer, type: :model do
   describe '#to_s' do
-    subject { create(:offer_with_name_and_price) }
+    subject { create(:offer) }
 
     it 'returns the expected string' do
-      expect(subject.to_s).to eq '12.22 - Relaxing massage'
+      expect(subject.to_s).to eq '0.0 - Relaxing massage'
     end
 
     it 'is an instance of String' do
