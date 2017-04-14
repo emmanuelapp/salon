@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @booking = BookingForm.new
+    render component: 'CreateBookingForm'
   end
 
   def create
