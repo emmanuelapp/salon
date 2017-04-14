@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :offers, only: [:index]
+      resources :bookings, only: [:create]
     end
   end
 end
