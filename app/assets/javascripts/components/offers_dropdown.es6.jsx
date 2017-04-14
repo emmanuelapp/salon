@@ -23,7 +23,7 @@ class OffersDropdown extends React.Component {
 
   render () {
     let offersOptions = this.state.offers.map((offer) =>
-      <option key={offer.id}>{offer.price} - {offer.name}</option>
+      <option key={offer.id}>{offer.price} - {offer.name} - {offer.first_name} {offer.last_name}</option>
     );
 
     return(
