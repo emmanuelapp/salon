@@ -24,7 +24,16 @@ class CreateBookingForm extends React.Component {
       url: '/api/v1/bookings',
       dataType: 'json',
       type: 'POST',
-      data: { booking: this.state },
+      data: {
+        booking: {
+          first_name: this.state.first_name,
+          last_name: this.state.last_name,
+          reserved_at: this.state.reserved_at,
+          additional_info: this.state.additional_info,
+          offer_ids: this.state.offer_ids,
+          phone: this.state.phone
+        }
+      },
       success: function(data) {
         alert('Success!!!!');
       },
