@@ -20,7 +20,7 @@
       integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
       crossorigin="anonymous"></script>
 
-    <title><%= content_for?(:title) ? yield(:title) : 'Health and Beauty centre Kava' %></title>
+    <title><%= content_for?(:title) ? yield(:title) : 'Health and Beauty centre' %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -40,9 +40,9 @@
           </ul>
         </nav>
 
-        <h3 class="text-muted">Health and Beauty centre KAVA</h3>
+        <h3 class="text-muted">Health and Beauty centre</h3>
         <div class="jumbotron">
-          <h1>Health and Beauty centre KAVA</h1>
+          <h1>Health and Beauty centre</h1>
           <p>Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea.</p>
 
           <%= link_to t(:book_an_hour), new_booking_path, class: 'btn btn-warning btn-lg' %>
@@ -52,14 +52,14 @@
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
         </div>
-
-        <%= image_tag 'logo_small.png', style: 'display: block; margin: auto;' %>
       </div>
 
       <%= yield %>
 
       <footer class='footer'>
-        2017 KAVA
+        <div class="container">
+          2017
+        </div>
       </footer>
     </div>
   </body>

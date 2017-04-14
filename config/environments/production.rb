@@ -1,5 +1,4 @@
 Rails.application.configure do
-  ENV['SECRET_KEY_BASE'] = '43216743946462dbfb707c1d6a43ae8ca046fa2ee650d0bf505219c77e8dd1be8b03a2a1b8593dc6c76b70cb8ff0b796459b2dbef1e17d105d09bdb4559dc4ee'
   config.cache_classes = true
   config.eager_load = true
   config.consider_all_requests_local       = false

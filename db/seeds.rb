@@ -12,21 +12,65 @@ User.create!(email: 'user2@example.com', password: 'secret')
   )
 end
 
-32.times do
-  Offer.create!(
+member_one = Member.create!(
+  first_name: 'John',
+  last_name: 'Doe',
+  profession: 'manicurist',
+  description: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.',
+  phone_number: '00123456789'
+)
+
+4.times do
+  member_one.offers.create!(
+    description: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.',
+    name: 'Massage',
+    price: 12.99
+  )
+end
+member_two = Member.create!(
+  first_name: 'Jack',
+  last_name: 'Daniels',
+  profession: 'hairdresser',
+  description: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.',
+  phone_number: '0192837465'
+)
+
+4.times do
+  member_two.offers.create!(
+    description: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.',
+    name: 'Massage',
+    price: 12.99
+  )
+end
+member_three = Member.create!(
+  first_name: 'Ronnie',
+  last_name: 'Rotten',
+  profession: 'nutritionist',
+  description: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.',
+  phone_number: '7774737743'
+)
+
+4.times do
+  member_three.offers.create!(
     description: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.',
     name: 'Massage',
     price: 12.99
   )
 end
 
-12.times do
-  Member.create!(
-    first_name: 'John',
-    last_name: 'Doe',
-    profession: 'Mambo Jambo',
-    description: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.',
-    phone_number: '00123456789'
+member_four = Member.create!(
+  first_name: 'Rosa',
+  last_name: 'Parx',
+  profession: 'kinesiotherapist',
+  description: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.',
+  phone_number: '94328432432'
+)
+
+4.times do
+  member_four.offers.create!(
+  description: 'Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea. Te fugit scriptorem quo. An eum suas mentitum adipiscing, sit splendide deterruisset at.',
+  name: 'Massage',
+  price: 12.99
   )
 end
 

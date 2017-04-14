@@ -1,4 +1,6 @@
 class Offer < ApplicationRecord
+  belongs_to :member
+
   has_many :reservations
   has_many :bookings, through: :reservations
 

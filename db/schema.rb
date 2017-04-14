@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20170212111119) do
     t.text     "description", default: "",    null: false
     t.string   "name",        default: "",    null: false
     t.decimal  "price",       default: "0.0", null: false
+    t.integer  "member_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end

@@ -9,14 +9,12 @@ Rails.application.routes.draw do
   resources :details,    only: [:index]
   resources :offers,     only: [:index]
 
-  resources :bookings,   only: %i[new create index]
+  resources :bookings,   only: %i[new index]
 
   namespace :dashboard do
     resources :members,    except: [:show]
     resources :offers,     except: [:show]
     resources :paragraphs, except: [:show]
-
-    resources :booking_weeks, only: [:index]
 
     resources :bookings do
       resources :approvals, only: :create
@@ -24,6 +22,14 @@ Rails.application.routes.draw do
 
     resources :bookings, param: :year do
       resources :weeks, param: :week_number, controller: 'bookings/weeks'
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :offers, only: [:index]
+      resources :bookings, only: [:create]
+      resources :reservation_dates, only: [:index]
     end
   end
 end

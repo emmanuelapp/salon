@@ -17,12 +17,3 @@
 //= require components
 //= require turbolinks
 //= require_tree .
-
-function ready() {
-  $('[data-toggle=offcanvas]').click(function() {
-      $('.row-offcanvas').toggleClass('active');
-      $('.collapse').toggleClass('in').toggleClass('hidden-xs').toggleClass('visible-xs');
-  });
-}
-
-$(document).on('turbolinks:load', ready);

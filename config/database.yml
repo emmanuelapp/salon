@@ -16,6 +16,6 @@ test:
 
 production:
   adapter: postgresql
-  database: kava_database
+  database: salon_production
   pool: 5
   timeout: 5000
