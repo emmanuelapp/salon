@@ -3,7 +3,7 @@ module Queries
     attr_reader :date
 
     def self.all
-      new(Date.parse('Sat, 15 Apr 2017 16:00:00 UTC +00:00')).all
+      new(Date.today).all
     end
 
     def initialize(date)
