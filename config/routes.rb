@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :details,    only: [:index]
   resources :offers,     only: [:index]
 
-  resources :bookings,   only: %i[new create index]
+  resources :bookings,   only: %i[new index]
 
   namespace :dashboard do
     resources :members,    except: [:show]

@@ -8,15 +8,4 @@ class BookingsController < ApplicationController
   def new
     render component: 'CreateBookingForm'
   end
-
-  def create
-    @booking = BookingForm.new(params)
-
-    if @booking.save
-      redirect_to new_booking_path, notice: t(:created_successfully)
-    else
-      flash[:notice] = t(:something_went_wrong)
-      render :new
-    end
-  end
 end
