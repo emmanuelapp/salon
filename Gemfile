@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'coffee-rails'
 gem 'devise'
+gem 'guard-rspec', require: false
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'paperclip'
