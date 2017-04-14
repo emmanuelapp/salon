@@ -12,12 +12,8 @@ class OffersDropdown extends React.Component {
       url: '/api/v1/offers',
       dataType: 'json',
       cache: false,
-      success: function(data) {
-        this.setState({offers: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-        alert('An error occured!!!');
-      }.bind(this)
+      success: ((data) => this.setState({offers: data})).bind(this),
+      error: ((xhr, status, err) => alert('An arror occured')).bind(this),
     });
   }
 
