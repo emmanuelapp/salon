@@ -1,10 +1,29 @@
 // import Calendar from 'rc-calendar';
 
 class BookingFormCalendar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dates: []
+    }
+  }
+
+  componentDidMount() {
+    $.ajax({
+      url: '/api/v1/reservation_dates',
+      method: 'GET',
+      success: ((data) => this.setState({dates: data['available']})).bind(this)
+    });
+  }
+
   render () {
+    let optionsForSelect = this.state.dates.map((date) => <option key={date}>{date}</option>);
+
     return(
       <div>
-        <label>Reservation date</label>
+        <label>Reservation time and date</label>
+
           <div className='form-group'>
             <div className="input-group">
               <span className="input-group-addon">
@@ -12,33 +31,7 @@ class BookingFormCalendar extends React.Component {
               </span>
 
               <select className='form-control'>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
-
-              <select className='form-control'>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
-
-              <select className='form-control'>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
-
-              <select className='form-control'>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
-
-              <select className='form-control'>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
+                {optionsForSelect}
               </select>
             </div>
           </div>
