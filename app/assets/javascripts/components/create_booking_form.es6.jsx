@@ -1,10 +1,67 @@
 class CreateBookingForm extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      first_name: '',
+      last_name: '',
+      reserved_at: '',
+      phone: '',
+      additional_info: '',
+      offer_ids: [],
+      errors: ''
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
+    this.handleLastNameChange = this.handleLastNameChange.bind(this);
+    this.handlePhoneChange = this.handlePhoneChange.bind(this);
+    this.handleInfoChange = this.handleInfoChange.bind(this);
+  }
+
+  handleSubmit(event) {
+    $.ajax({
+      url: '/api/v1/bookings',
+      dataType: 'json',
+      type: 'POST',
+      data: { booking: this.state },
+      success: function(data) {
+        alert('Success!!!!');
+      },
+      error: ((xhr, status, err) => (
+        this.setState({errors: xhr['responseJSON']['error']})
+      )).bind(this)
+     });
+
+    event.preventDefault();
+  }
+
+  handleFirstNameChange(event) {
+    this.setState({first_name: event.target.value});
+  }
+
+  handleLastNameChange(event) {
+    this.setState({last_name: event.target.value});
+  }
+
+  handlePhoneChange(event) {
+    this.setState({phone: event.target.value});
+  }
+
+  handleInfoChange(event) {
+    this.setState({additional_info: event.target.value});
+  }
+
   render () {
+    let errors = <div className="alert alert-danger"><strong>Error!</strong> {this.state.errors}</div>;
+
     return(
       <div className='container'>
         <div className='row'>
+          {this.state.errors !== '' && errors}
 
-          <form>
+
+          <form onSubmit={this.handleSubmit}>
             <div className='col-lg-6'>
               <div className='form-group'>
                 <label>Full Name</label>
@@ -14,8 +71,8 @@ class CreateBookingForm extends React.Component {
                     <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
                   </span>
 
-                  <input type='text' className='form-control' placeholder='First name' />
-                  <input type='text' className='form-control' placeholder='Last name' />
+                  <input type='text' className='form-control' placeholder='First name' onChange={this.handleFirstNameChange}/>
+                  <input type='text' className='form-control' placeholder='Last name' onChange={this.handleLastNameChange}/>
                 </div>
 
                 <label>Phone Number</label>
@@ -25,7 +82,7 @@ class CreateBookingForm extends React.Component {
                     <span className="glyphicon glyphicon-phone" aria-hidden="true"></span>
                   </span>
 
-                  <input type='text' className='form-control' placeholder='Phone' />
+                  <input type='text' className='form-control' placeholder='Phone' onChange={this.handlePhoneChange} />
                 </div>
               </div>
             </div>
@@ -47,16 +104,14 @@ class CreateBookingForm extends React.Component {
                       <span className="glyphicon glyphicon-comment" aria-hidden="true"></span>
                     </span>
 
-                    <textarea className='form-control' placeholder='Additional Information' />
+                    <textarea className='form-control' placeholder='Additional Information' onChange={this.handleInfoChange}/>
                   </div>
                 </div>
 
                 <input type='submit' value='submit' className='btn btn-warning btn-block' />
               </div>
             </div>
-
           </form>
-
         </div>
       </div>
     );

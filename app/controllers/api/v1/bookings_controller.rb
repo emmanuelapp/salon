@@ -7,7 +7,8 @@ module Api
         if @booking.save
           render json: { success: 'Reservation saved!' }, status: 200
         else
-          render json: { error: 'An error occured' }, status: 422
+          errors = @booking.errors.full_messages.to_sentence
+          render json: { error: errors }, status: 422
         end
       end
 
