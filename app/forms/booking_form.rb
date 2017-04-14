@@ -32,8 +32,8 @@ class BookingForm
   end
 
   def save
-    return false unless booking.valid?
     return false unless valid?
+    return false unless booking.valid?
 
     persist
   end
