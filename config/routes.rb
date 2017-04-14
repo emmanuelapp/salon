@@ -26,4 +26,10 @@ Rails.application.routes.draw do
       resources :weeks, param: :week_number, controller: 'bookings/weeks'
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :offers, only: [:index]
+    end
+  end
 end

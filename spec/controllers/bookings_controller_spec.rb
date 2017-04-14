@@ -4,8 +4,8 @@ RSpec.describe BookingsController do
   describe 'GET #new' do
     subject { get :new }
 
-    it 'renders new' do
-      expect(subject).to render_template(:new)
+    it 'responds with http success' do
+      expect(subject).to have_http_status(:success)
     end
   end
 
