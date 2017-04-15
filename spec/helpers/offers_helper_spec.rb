@@ -26,4 +26,22 @@ RSpec.describe OffersHelper, type: :helper do
       end
     end
   end
+
+  describe '#selection_tuples' do
+    context 'when Member.count is zero' do
+      before(:each) { Member.delete_all }
+
+      it 'returns an empty array' do
+        expect(helper.selection_tuples).to eq []
+      end
+    end
+
+    context 'when Member has data in its table' do
+      let!(:member) { create(:member) }
+
+      it 'holds the expected tuple' do
+        expect(helper.selection_tuples).to include(['Jack Daniels', member.id])
+      end
+    end
+  end
 end
