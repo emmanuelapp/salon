@@ -1,6 +1,6 @@
 <div class='col-lg-4'>
   <h5><%= offer.name %></h5>
+  <p><%= link_to offer.member.full_name, member_path(offer.member.slug) %></p>
   <p><%= offer.description %></p>
   <p><%= format_price(offer) %></p>
-  <p><%= link_to offer.member.full_name, '#' %></p>
 </div>
