@@ -43,7 +43,7 @@ module Dashboard
     end
 
     def offer_params
-      params.require(:offer).permit(:description, :name, :price)
+      params.require(:offer).permit(:description, :name, :price, :member_id)
     end
   end
 end
