@@ -28,7 +28,8 @@ class BookingFormCalendar extends React.Component {
                 <span className="glyphicon glyphicon-calendar" aria-hidden="true"></span>
               </span>
 
-              <select className='form-control' onChange={this.props.onChange}>
+              <select className='form-control' onChange={this.props.onChange} required={true}>
+                <option value="" selected>Select reservation date</option>
                 {optionsForSelect}
               </select>
             </div>

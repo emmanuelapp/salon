@@ -32,7 +32,8 @@ class OffersDropdown extends React.Component {
               <span className="glyphicon glyphicon-comment" aria-hidden="true"></span>
             </span>
 
-            <select className="form-control" onChange={this.props.onChange} >
+            <select className="form-control" onChange={this.props.onChange} required={true}>
+              <option value="" selected>Select offer</option>
               {offersOptions}
             </select>
           </div>

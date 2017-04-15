@@ -9,7 +9,8 @@ class CreateBookingForm extends React.Component {
       phone: '',
       additional_info: '',
       offer_id: '',
-      errors: ''
+      errors: '',
+      success: ''
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,12 +37,8 @@ class CreateBookingForm extends React.Component {
           phone: this.state.phone
         }
       },
-      success: function(data) {
-        alert('Success!!!!');
-      },
-      error: ((xhr, status, err) => (
-        this.setState({errors: xhr['responseJSON']['error']})
-      )).bind(this)
+      success: ((data) => this.setState({success: 'Your reservation has been made!'})).bind(this),
+      error: ((xhr, status, err) => (this.setState({errors: xhr['responseJSON']['error']}))).bind(this)
      });
 
     event.preventDefault();
@@ -73,11 +70,13 @@ class CreateBookingForm extends React.Component {
 
   render () {
     let errors = <div className="alert alert-danger"><strong>Error!</strong> {this.state.errors}</div>;
+    let success = <div className="alert alert-success"><strong>Success!</strong>{this.state.success}</div>
 
     return(
       <div className='container'>
         <div className='row'>
           {this.state.errors !== '' && errors}
+          {this.state.success !== '' && success}
 
           <form onSubmit={this.handleSubmit}>
             <div className='col-lg-6'>
@@ -89,8 +88,8 @@ class CreateBookingForm extends React.Component {
                     <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
                   </span>
 
-                  <input type='text' className='form-control' placeholder='First name' onChange={this.handleFirstNameChange}/>
-                  <input type='text' className='form-control' placeholder='Last name' onChange={this.handleLastNameChange}/>
+                  <input type='text' className='form-control' placeholder='First name' onChange={this.handleFirstNameChange} required={true} />
+                  <input type='text' className='form-control' placeholder='Last name' onChange={this.handleLastNameChange} required={true} />
                 </div>
               </div>
               <div className='form-group'>
@@ -102,7 +101,7 @@ class CreateBookingForm extends React.Component {
                     <span className="glyphicon glyphicon-phone" aria-hidden="true"></span>
                   </span>
 
-                  <input type='text' className='form-control' placeholder='Phone' onChange={this.handlePhoneChange} />
+                  <input type='text' className='form-control' placeholder='Phone' onChange={this.handlePhoneChange} required={true} />
                 </div>
               </div>
             </div>
@@ -110,7 +109,6 @@ class CreateBookingForm extends React.Component {
             <div className='col-lg-6'>
               <div className='form-group'>
                 <OffersDropdown onChange={this.handleOfferId} />
-
                 <BookingFormCalendar onChange={this.handleReservedAt} />
               </div>
             </div>
