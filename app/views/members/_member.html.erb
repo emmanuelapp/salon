@@ -1,7 +1,7 @@
 <div class='col-lg-6'>
   <%#= image_tag member.avatar(:medium) %>
 
-  <h4><%= member.full_name %></h4>
+  <h4><%= link_to member.full_name, member_path(member.slug) %></h4>
   <h5><%= member.profession %></h5>
   <h6><%= member.phone_number %></h6>
   <p><%= member.description %></p>
