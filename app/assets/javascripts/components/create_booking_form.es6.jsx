@@ -8,7 +8,7 @@ class CreateBookingForm extends React.Component {
       reserved_at: '',
       phone: '',
       additional_info: '',
-      offer_ids: [],
+      offer_id: '',
       errors: ''
     }
 
@@ -17,6 +17,8 @@ class CreateBookingForm extends React.Component {
     this.handleLastNameChange = this.handleLastNameChange.bind(this);
     this.handlePhoneChange = this.handlePhoneChange.bind(this);
     this.handleInfoChange = this.handleInfoChange.bind(this);
+    this.handleOfferId = this.handleOfferId.bind(this);
+    this.handleReservedAt = this.handleReservedAt.bind(this);
   }
 
   handleSubmit(event) {
@@ -30,7 +32,7 @@ class CreateBookingForm extends React.Component {
           last_name: this.state.last_name,
           reserved_at: this.state.reserved_at,
           additional_info: this.state.additional_info,
-          offer_ids: this.state.offer_ids,
+          offer_id: this.state.offer_id,
           phone: this.state.phone
         }
       },
@@ -61,6 +63,14 @@ class CreateBookingForm extends React.Component {
     this.setState({additional_info: event.target.value});
   }
 
+  handleOfferId(event) {
+    this.setState({offer_id: event.target.value});
+  }
+
+  handleReservedAt(event) {
+    this.setState({reserved_at: event.target.value});
+  }
+
   render () {
     let errors = <div className="alert alert-danger"><strong>Error!</strong> {this.state.errors}</div>;
 
@@ -68,7 +78,6 @@ class CreateBookingForm extends React.Component {
       <div className='container'>
         <div className='row'>
           {this.state.errors !== '' && errors}
-
 
           <form onSubmit={this.handleSubmit}>
             <div className='col-lg-6'>
@@ -83,6 +92,8 @@ class CreateBookingForm extends React.Component {
                   <input type='text' className='form-control' placeholder='First name' onChange={this.handleFirstNameChange}/>
                   <input type='text' className='form-control' placeholder='Last name' onChange={this.handleLastNameChange}/>
                 </div>
+              </div>
+              <div className='form-group'>
 
                 <label>Phone Number</label>
 
@@ -98,8 +109,9 @@ class CreateBookingForm extends React.Component {
 
             <div className='col-lg-6'>
               <div className='form-group'>
-                <OffersDropdown />
-                <BookingFormCalendar />
+                <OffersDropdown onChange={this.handleOfferId} />
+
+                <BookingFormCalendar onChange={this.handleReservedAt} />
               </div>
             </div>
 

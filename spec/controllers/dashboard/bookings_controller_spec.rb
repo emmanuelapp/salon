@@ -13,7 +13,7 @@ RSpec.describe Dashboard::BookingsController, type: :controller do
   describe 'GET #show' do
     login_user
 
-    let!(:booking) { create(:booking, offer_ids: [create(:offer).id]) }
+    let!(:booking) { create(:booking) }
 
     it 'returns http success' do
       get :show, params: { id: booking.id }

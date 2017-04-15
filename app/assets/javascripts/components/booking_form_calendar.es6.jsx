@@ -1,5 +1,3 @@
-// import Calendar from 'rc-calendar';
-
 class BookingFormCalendar extends React.Component {
   constructor(props) {
     super(props);
@@ -30,7 +28,7 @@ class BookingFormCalendar extends React.Component {
                 <span className="glyphicon glyphicon-calendar" aria-hidden="true"></span>
               </span>
 
-              <select className='form-control'>
+              <select className='form-control' onChange={this.props.onChange}>
                 {optionsForSelect}
               </select>
             </div>
