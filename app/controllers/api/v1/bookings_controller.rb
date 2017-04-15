@@ -20,7 +20,8 @@ module Api
           :last_name,
           :additional_info,
           :phone,
-          :reserved_at
+          :reserved_at,
+          :offer_id
         )
       end
     end

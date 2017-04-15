@@ -1,8 +1,7 @@
 class Offer < ApplicationRecord
   belongs_to :member
 
-  has_many :reservations
-  has_many :bookings, through: :reservations
+  has_many :bookings
 
   validates :description, presence: true
   validates :name, presence: true

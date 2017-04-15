@@ -83,6 +83,8 @@ class CreateBookingForm extends React.Component {
                   <input type='text' className='form-control' placeholder='First name' onChange={this.handleFirstNameChange}/>
                   <input type='text' className='form-control' placeholder='Last name' onChange={this.handleLastNameChange}/>
                 </div>
+              </div>
+              <div className='form-group'>
 
                 <label>Phone Number</label>
 

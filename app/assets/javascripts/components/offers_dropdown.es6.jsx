@@ -25,14 +25,14 @@ class OffersDropdown extends React.Component {
     return(
       <div>
         <div className='form-group'>
-          <label>Select Offers</label>
+          <label>Select Offer</label>
 
           <div className='input-group'>
             <span className="input-group-addon">
               <span className="glyphicon glyphicon-comment" aria-hidden="true"></span>
             </span>
 
-            <select multiple className="form-control">
+            <select className="form-control">
               {offersOptions}
             </select>
           </div>

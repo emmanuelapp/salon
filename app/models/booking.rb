@@ -1,7 +1,6 @@
 # :nodoc:
 class Booking < ApplicationRecord
-  has_many :reservations
-  has_many :offers, through: :reservations
+  belongs_to :offer
 
   validates :reserved_at, presence: true
 
