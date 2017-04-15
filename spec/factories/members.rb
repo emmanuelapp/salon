@@ -4,5 +4,6 @@ FactoryGirl.define do
     last_name 'Daniels'
     profession 'Health care practitioner'
     description 'Lorem ipsum bla bla bla'
+    slug { |n| "asdas2314#{n}" }
   end
 end

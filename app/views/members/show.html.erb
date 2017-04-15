@@ -1,0 +1,12 @@
+<div class='thumbnail'>
+  <h1><%= @member.full_name %></h1>
+
+  <ul>
+    <li><%= @member.profession %></li>
+    <li><%= @member.phone_number %></li>
+  </ul>
+
+  <p><%= @member.description %></p>
+</div>
+
+<%= render @member.offers %>

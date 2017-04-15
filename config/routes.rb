@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get '/admin', to: 'dashboard/offers#index'
 
   resources :paragraphs, only: [:index], path: 'about'
-  resources :members,    only: [:index]
   resources :details,    only: [:index]
   resources :offers,     only: [:index]
 
+  resources :members,    only: %i[index show], param: :slug
   resources :bookings,   only: %i[new index]
 
   namespace :dashboard do
