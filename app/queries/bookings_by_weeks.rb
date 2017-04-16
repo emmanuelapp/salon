@@ -1,4 +1,9 @@
 module Queries
+  # The class Queries::BookingsByWeeks is responsible for
+  # showing an excerpt of bookings on the basis of year and
+  # week. year is expected as a four-digit number and
+  # week is expected as the integer that represents
+  # a given week (by the ISO-8601 standard).
   class BookingsByWeeks
     attr_reader :year, :week
 
