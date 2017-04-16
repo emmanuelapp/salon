@@ -3,8 +3,11 @@ class OffersDropdown extends React.Component {
     super(props);
 
     this.state = {
-      offers: []
+      offers: [],
+      offerId: ''
     };
+
+    this.handleOffer = this.handleOffer.bind(this);
   }
 
   componentDidMount() {
@@ -14,6 +17,14 @@ class OffersDropdown extends React.Component {
       cache: false,
       success: ((data) => this.setState({offers: data})).bind(this),
       error: ((xhr, status, err) => alert('An arror occured')).bind(this),
+    });
+  }
+
+  handleOffer(event) {
+    this.props.onChange(event);
+
+    this.setState({
+      offerId: this.props.offerId
     });
   }
 
@@ -32,12 +43,14 @@ class OffersDropdown extends React.Component {
               <span className="glyphicon glyphicon-comment" aria-hidden="true"></span>
             </span>
 
-            <select className="form-control" onChange={this.props.onChange} required={true}>
+            <select className="form-control" onChange={this.handleOffer} required={true}>
               <option value="" selected>Select offer</option>
               {offersOptions}
             </select>
           </div>
         </div>
+
+        <BookingFormCalendar onChange={this.props.onReservedAtChange} offerId={this.state.offerId} />
       </div>
     );
   }

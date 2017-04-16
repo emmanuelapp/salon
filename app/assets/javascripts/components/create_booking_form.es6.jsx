@@ -57,9 +57,9 @@ class CreateBookingForm extends React.Component {
 
             <div className='col-lg-6'>
               <div className='form-group'>
-                <OffersDropdown onChange={(event) => this.setState({offer_id: event.target.value})} />
-
-                <BookingFormCalendar onChange={(event) => this.setState({reserved_at: event.target.value})} />
+                <OffersDropdown onChange={(event) => this.setState({offer_id: event.target.value})}
+                                onReservedAtChange={(event) => this.setState({reserved_at: event.target.value})}
+                                offerId={this.state.offer_id} />
               </div>
             </div>
 
