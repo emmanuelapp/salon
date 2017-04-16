@@ -14,12 +14,6 @@ class CreateBookingForm extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
-    this.handleLastNameChange = this.handleLastNameChange.bind(this);
-    this.handlePhoneChange = this.handlePhoneChange.bind(this);
-    this.handleInfoChange = this.handleInfoChange.bind(this);
-    this.handleOfferId = this.handleOfferId.bind(this);
-    this.handleReservedAt = this.handleReservedAt.bind(this);
   }
 
   handleSubmit(event) {
@@ -44,30 +38,6 @@ class CreateBookingForm extends React.Component {
     event.preventDefault();
   }
 
-  handleFirstNameChange(event) {
-    this.setState({first_name: event.target.value});
-  }
-
-  handleLastNameChange(event) {
-    this.setState({last_name: event.target.value});
-  }
-
-  handlePhoneChange(event) {
-    this.setState({phone: event.target.value});
-  }
-
-  handleInfoChange(event) {
-    this.setState({additional_info: event.target.value});
-  }
-
-  handleOfferId(event) {
-    this.setState({offer_id: event.target.value});
-  }
-
-  handleReservedAt(event) {
-    this.setState({reserved_at: event.target.value});
-  }
-
   render () {
     let errors = <div className="alert alert-danger"><strong>Error!</strong> {this.state.errors}</div>;
     let success = <div className="alert alert-success"><strong>Success!</strong>{this.state.success}</div>
@@ -80,36 +50,16 @@ class CreateBookingForm extends React.Component {
 
           <form onSubmit={this.handleSubmit}>
             <div className='col-lg-6'>
-              <div className='form-group'>
-                <label>Full Name</label>
-                
-                <div className="input-group">
-                  <span className="input-group-addon">
-                    <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
-                  </span>
-
-                  <input type='text' className='form-control' placeholder='First name' onChange={this.handleFirstNameChange} required={true} />
-                  <input type='text' className='form-control' placeholder='Last name' onChange={this.handleLastNameChange} required={true} />
-                </div>
-              </div>
-              <div className='form-group'>
-
-                <label>Phone Number</label>
-
-                <div className="input-group">
-                  <span className="input-group-addon">
-                    <span className="glyphicon glyphicon-phone" aria-hidden="true"></span>
-                  </span>
-
-                  <input type='text' className='form-control' placeholder='Phone' onChange={this.handlePhoneChange} required={true} />
-                </div>
-              </div>
+              <UserDetails onFirstNameChange={(event) => this.setState({first_name: event.target.value})} 
+                           onLastNameChange={(event) => this.setState({last_name: event.target.value})}
+                           onPhoneChange={(event) => this.setState({phone: event.target.value})} />
             </div>
 
             <div className='col-lg-6'>
               <div className='form-group'>
-                <OffersDropdown onChange={this.handleOfferId} />
-                <BookingFormCalendar onChange={this.handleReservedAt} />
+                <OffersDropdown onChange={(event) => this.setState({offer_id: event.target.value})} />
+
+                <BookingFormCalendar onChange={(event) => this.setState({reserved_at: event.target.value})} />
               </div>
             </div>
 
@@ -123,7 +73,9 @@ class CreateBookingForm extends React.Component {
                       <span className="glyphicon glyphicon-comment" aria-hidden="true"></span>
                     </span>
 
-                    <textarea className='form-control' placeholder='Additional Information' onChange={this.handleInfoChange}/>
+                    <textarea className='form-control'
+                              placeholder='Additional Information'
+                              onChange={(event) => this.setState({additional_info: event.target.value})}/>
                   </div>
                 </div>
 

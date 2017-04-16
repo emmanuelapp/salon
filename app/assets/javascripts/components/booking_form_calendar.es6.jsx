@@ -9,7 +9,7 @@ class BookingFormCalendar extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/api/v1/reservation_dates',
+      url: '/api/v1/reservation_dates/?offer_id=' + this.props.offerId,
       method: 'GET',
       success: ((data) => this.setState({dates: data['available']})).bind(this)
     });
