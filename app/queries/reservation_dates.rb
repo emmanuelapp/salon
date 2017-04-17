@@ -1,12 +1,13 @@
 module Queries
+  # Determines the available reservation hours
   class ReservationDates
     attr_reader :date
 
     def self.all
-      new(Date.today).all
+      new.all
     end
 
-    def initialize(date)
+    def initialize(date = Date.today)
       @date = date
     end
 

@@ -1,4 +1,5 @@
-# :nodoc:
+# Booking model is designed to be created by either a user
+# or an admin (from the admin panel)
 class Booking < ApplicationRecord
   belongs_to :offer
 

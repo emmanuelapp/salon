@@ -1,3 +1,4 @@
+# Represents a bookable offer which is available in the salon.
 class Offer < ApplicationRecord
   belongs_to :member
 

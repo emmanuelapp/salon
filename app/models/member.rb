@@ -1,4 +1,4 @@
-# :nodoc:
+# The model Member holds the public profile data of staff members.
 class Member < ApplicationRecord
   has_many :offers
 
