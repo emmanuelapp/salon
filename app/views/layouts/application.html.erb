@@ -24,7 +24,7 @@
             <li role="presentation"><%= link_to t(:offers), offers_path %></li>
             <li role="presentation"><%= link_to t(:team), members_path %></li>
             <li role="presentation"><%= link_to t(:contacts), details_path %></li>
-            <li role="presentation"><%= link_to t(:book_an_hour), new_booking_path %></li>
+            <li role="presentation"><%= link_to t(:book_an_hour), new_booking_path, 'data-turbolinks' => "false" %></li>
           </ul>
         </nav>
 
@@ -33,7 +33,8 @@
           <h1>Health and Beauty centre</h1>
           <p>Lorem ipsum dolor sit amet, at choro recusabo electram quo, equidem euripidis in vel. Postea docendi et ius, decore invenire sea ea.</p>
 
-          <%= link_to t(:book_an_hour), new_booking_path, class: 'btn btn-warning btn-lg' %>
+          <%= link_to t(:book_an_hour), new_booking_path, class: 'btn btn-warning btn-lg',
+                                                          'data-turbolinks' => "false" %>
         </div>
 
         <div class='row'>
