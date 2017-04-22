@@ -1,6 +1,6 @@
 # Salon
 
-**Currently this project is under development.**
+**Currently this project is under development and it is not production ready.**
 
 Sample: https://joromir-salon.herokuapp.com/
 
