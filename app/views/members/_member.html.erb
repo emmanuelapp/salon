@@ -4,5 +4,5 @@
   <h4><%= link_to member.full_name, member_path(member.slug) %></h4>
   <h5><%= member.profession %></h5>
   <h6><%= member.phone_number %></h6>
-  <p><%= member.description %></p>
+  <p><%= member.description.truncate(200) %></p>
 </div>
