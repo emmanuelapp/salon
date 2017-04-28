@@ -4,12 +4,10 @@ module Dashboard
   module Bookings
     class WeeksController < AdminController
       def show
-        render component: 'WeekBoard', props: {
-          daily_bookings: ::Queries::BookingsByWeeks.where(
-            week: params[:week_number],
-            year: params[:booking_year]
-          )
-        }
+        week = params[:week_number]
+        year = params[:booking_year]
+
+        @bookings = ::Queries::BookingsByWeeks.where(week: week, year: year)
       end
     end
   end

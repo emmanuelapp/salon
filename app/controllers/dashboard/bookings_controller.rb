@@ -2,10 +2,8 @@ module Dashboard
   # :nodoc:
   class BookingsController < AdminController
     def index
-      render component: 'BookingsBoard', props: {
-        confirmed: Booking.confirmed.order_by_desc,
-        pending: Booking.pending.order_by_desc
-      }
+      @confirmed = Booking.confirmed.order_by_desc
+      @pending = Booking.pending.order_by_desc
     end
 
     def show

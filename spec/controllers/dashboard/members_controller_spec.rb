@@ -33,7 +33,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
     context 'when user is logged in' do
       login_user
 
-      subject { delete :destroy, id: member.id }
+      subject { delete :destroy, params: { id: member.id } }
 
       it 'decrements the Member rows count by one' do
         expect { subject }.to change { Member.count }.by(-1)
@@ -45,7 +45,7 @@ RSpec.describe Dashboard::MembersController, type: :controller do
     end
 
     context 'when user is not logged in' do
-      subject { delete :destroy, id: member.id }
+      subject { delete :destroy, params: { id: member.id } }
 
       it 'does not change the Member rows count' do
         expect { subject }.to change { Member.count }.by(0)
