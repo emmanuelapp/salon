@@ -20,7 +20,9 @@ class BookingForm
   validates :last_name,       presence: true
   validates :phone,           presence: true
 
-  validates :offer_ids,       with: :order_ids?
+  validate :offer_ids do |record|
+    record.errors.add(:offer_ids, 'array is empty') if record.offer_ids.empty?
+  end
 
   def initialize(params = ActionController::Parameters.new)
     @params    = params
@@ -48,12 +50,6 @@ class BookingForm
         booking.reservations.create!(offer_id: offer_id)
       end
     end
-  end
-
-  def order_ids?
-    return false if offer_ids.any?
-
-    errors.add(:offer_ids, 'array is empty')
   end
 
   def booking_params
