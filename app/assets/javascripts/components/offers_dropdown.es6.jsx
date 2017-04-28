@@ -44,7 +44,7 @@ class OffersDropdown extends React.Component {
             </span>
 
             <select className="form-control" onChange={this.handleOffer} required={true}>
-              <option value="" selected>Select offer</option>
+              <option default>Select offer</option>
               {offersOptions}
             </select>
           </div>

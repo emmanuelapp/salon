@@ -29,7 +29,7 @@ class BookingFormCalendar extends React.Component {
               </span>
 
               <select className='form-control' onChange={this.props.onChange} required={true}>
-                <option value="" selected>Select reservation date</option>
+                <option default>Select time and date</option>
                 {optionsForSelect}
               </select>
             </div>
