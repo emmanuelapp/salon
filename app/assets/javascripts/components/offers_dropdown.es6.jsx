@@ -3,7 +3,7 @@ class OffersDropdown extends React.Component {
     super(props);
 
     this.state = {
-      offers: [],
+      allOffers: [],
       offerId: ''
     };
 
@@ -15,7 +15,7 @@ class OffersDropdown extends React.Component {
       url: '/api/v1/offers',
       dataType: 'json',
       cache: false,
-      success: ((data) => this.setState({offers: data})).bind(this),
+      success: ((data) => this.setState({allOffers: data})).bind(this),
       error: ((xhr, status, err) => alert('An arror occured')).bind(this),
     });
   }
@@ -29,7 +29,7 @@ class OffersDropdown extends React.Component {
   }
 
   render () {
-    let offersOptions = this.state.offers.map((offer) =>
+    let offersOptions = this.state.allOffers.map((offer) =>
       <option key={offer.id} value={offer.id}>{offer.price} - {offer.name} - {offer.first_name} {offer.last_name}</option>
     );
 
@@ -44,7 +44,7 @@ class OffersDropdown extends React.Component {
             </span>
 
             <select className="form-control" onChange={this.handleOffer} required={true}>
-              <option default>Select offer</option>
+              <option default value=''>Select offer</option>
               {offersOptions}
             </select>
           </div>

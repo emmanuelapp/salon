@@ -9,7 +9,7 @@ class BookingFormCalendar extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/api/v1/reservation_dates/?offer_id=' + this.props.offerId,
+      url: '/api/v1/reservation_dates',
       method: 'GET',
       success: ((data) => this.setState({dates: data['available']})).bind(this)
     });
@@ -29,7 +29,7 @@ class BookingFormCalendar extends React.Component {
               </span>
 
               <select className='form-control' onChange={this.props.onChange} required={true}>
-                <option default>Select time and date</option>
+                <option default value=''>Select time and date</option>
                 {optionsForSelect}
               </select>
             </div>
