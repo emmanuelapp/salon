@@ -4,15 +4,17 @@ module Queries
     module_function
 
     def all
-      ActiveRecord::Base.connection.execute(
-        'SELECT OFFERS.ID,
-                OFFERS.NAME,
-                MEMBERS.FIRST_NAME,
-                MEMBERS.LAST_NAME,
-                OFFERS.PRICE
-         FROM OFFERS
-         JOIN MEMBERS ON MEMBERS.ID = OFFERS.MEMBER_ID'
-      )
+      Offer.select(*attributes).joins(:member)
+    end
+
+    def attributes
+      %w[
+        offers.id
+        offers.name
+        offers.price
+        members.first_name
+        members.last_name
+      ]
     end
   end
 end

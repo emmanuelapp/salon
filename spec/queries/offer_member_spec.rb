@@ -17,7 +17,7 @@ RSpec.describe Queries::OfferMember do
 
     it 'has the expected keys for each hash' do
       keys = %w[first_name id last_name name price]
-      expect(subject.last.keys).to contain_exactly(*keys)
+      expect(subject.last.attributes.keys).to contain_exactly(*keys)
     end
   end
 end
