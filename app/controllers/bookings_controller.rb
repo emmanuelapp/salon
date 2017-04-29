@@ -3,7 +3,5 @@ class BookingsController < ApplicationController
     redirect_to new_booking_path
   end
 
-  def new
-    render component: 'CreateBookingForm'
-  end
+  def new; end
 end

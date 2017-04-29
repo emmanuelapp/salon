@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'coffee-rails'
-gem 'devise'
+gem 'devise', branch: '4beeca46c45dcb2fbc7513570dbc30dcbe3cc85a', git: 'https://github.com/plataformatec/devise.git'
 gem 'guard-rspec', require: false
 gem 'jbuilder'
 gem 'jquery-rails'
+gem 'json', '~> 2.1'
 gem 'paperclip'
 gem 'pg'
 gem 'puma'
@@ -13,7 +14,6 @@ gem 'react-rails'
 gem 'rubocop'
 gem 'sass-rails'
 gem 'sdoc', group: :doc
-gem 'simplecov'
 gem 'turbolinks'
 gem 'uglifier'
 
@@ -23,6 +23,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'reek'
   gem 'rspec-rails'
+  gem 'simplecov'
 end
 
 group :development do
