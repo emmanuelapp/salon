@@ -1,4 +1,5 @@
 # Salon
+[![Build Status](https://travis-ci.org/joromir/salon.svg?branch=master)](https://travis-ci.org/joromir/salon)
 
 **Currently this project is under development and it is not production ready.**
 
