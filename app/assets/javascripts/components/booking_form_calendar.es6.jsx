@@ -4,7 +4,7 @@ class BookingFormCalendar extends React.Component {
 
     this.state = {
       availableDates: [],
-      offerId: []
+      offerId: ''
     }
 
     this.handleSelection = this.handleSelection.bind(this);
@@ -19,7 +19,8 @@ class BookingFormCalendar extends React.Component {
 
   render () {
     if (this.props.offerId !== '' && this.state.offerId !== this.props.offerId) {
-      $.get(`/api/v1/reservation_dates/?offer_id=${this.props.offerId}`, this.handleSelection)
+      path = `/api/v1/reservation_dates/?offer_id=${this.props.offerId}`
+      $.get(path, this.handleSelection)
     }
 
     if (this.props.offerId === '') {
