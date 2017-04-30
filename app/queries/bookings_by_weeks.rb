@@ -17,10 +17,13 @@ module Queries
     end
 
     def all
-      Booking.includes(:offer)
-             .where(confirmed: true)
-             .by_week(week, year)
-             .by_days
+      excerpt.group_by { |booking| booking.reserved_at.to_date }.to_a
+    end
+
+    private
+
+    def excerpt
+      @excerpt ||= Booking.includes(:offer).confirmed.by_week(week, year)
     end
   end
 end

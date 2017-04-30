@@ -24,7 +24,7 @@ class OffersDropdown extends React.Component {
     this.props.onChange(event);
 
     this.setState({
-      offerId: this.props.offerId
+      offerId: event.target.value
     });
   }
 

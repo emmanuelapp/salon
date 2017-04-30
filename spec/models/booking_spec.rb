@@ -11,7 +11,7 @@ RSpec.describe Booking, type: :model do
     end
 
     context 'when year is 2017 and records are present' do
-      before(:each) { described_class.create(reserved_at: '2017-01-01-12:12') }
+      before(:each) { described_class.create!(reserved_at: '2017-01-01-12:12') }
 
       it 'is not empty' do
         expect(described_class.by_year(2017)).to_not be_empty

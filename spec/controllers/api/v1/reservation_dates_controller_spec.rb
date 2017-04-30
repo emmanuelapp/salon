@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::ReservationDatesController, type: :controller do
   describe 'GET #index' do
-    subject { get :index }
+    let(:member) { create(:member) }
+    let(:offer) { create(:offer, member: member) }
+
+    subject { get :index, params: { offer_id: offer.id } }
 
     it 'returns HTTP status 200' do
       expect(subject).to have_http_status(200)

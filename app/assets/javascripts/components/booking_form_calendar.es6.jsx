@@ -3,37 +3,45 @@ class BookingFormCalendar extends React.Component {
     super(props);
 
     this.state = {
-      dates: []
+      availableDates: [],
+      offerId: []
     }
+
+    this.handleSelection = this.handleSelection.bind(this);
   }
 
-  componentDidMount() {
-    $.ajax({
-      url: '/api/v1/reservation_dates',
-      method: 'GET',
-      success: ((data) => this.setState({dates: data['available']})).bind(this)
+  handleSelection(data) {
+    this.setState({
+      availableDates: data['available'],
+      offerId: this.props.offerId
     });
   }
 
   render () {
-    let optionsForSelect = this.state.dates.map((date) => <option key={date}>{date}</option>);
+    if (this.props.offerId !== '' && this.state.offerId !== this.props.offerId) {
+      $.get(`/api/v1/reservation_dates/?offer_id=${this.props.offerId}`, this.handleSelection)
+    }
+
+    if (this.props.offerId === '') {
+      this.setState({availableDates: []});
+    }
 
     return(
       <div>
         <label>Reservation time and date</label>
 
-          <div className='form-group'>
-            <div className="input-group">
-              <span className="input-group-addon">
-                <span className="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-              </span>
+        <div className='form-group'>
+          <div className="input-group">
+            <span className="input-group-addon">
+              <span className="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            </span>
 
-              <select className='form-control' onChange={this.props.onChange} required={true}>
-                <option default value=''>Select time and date</option>
-                {optionsForSelect}
-              </select>
-            </div>
+            <select className='form-control' onChange={this.props.onChange} required={true}>
+              <option default value=''>Select time and date</option>
+              {this.state.availableDates.map((date) => <option key={date}>{date}</option>)}
+            </select>
           </div>
+        </div>
       </div>
     );
   }

@@ -2,8 +2,8 @@ module Dashboard
   # :nodoc:
   class BookingsController < AdminController
     def index
-      @confirmed = Booking.confirmed.order_by_desc
-      @pending = Booking.pending.order_by_desc
+      @confirmed = Booking.confirmed.desc_order
+      @pending = Booking.pending.desc_order
     end
 
     def show

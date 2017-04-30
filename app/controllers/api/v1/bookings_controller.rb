@@ -1,6 +1,6 @@
 module Api
   module V1
-    class BookingsController < ActionController::API
+    class BookingsController < ApiController
       def create
         @booking = Booking.new(booking_params)
 
