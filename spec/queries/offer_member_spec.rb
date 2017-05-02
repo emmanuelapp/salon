@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Queries::OfferMember do
-  let(:member) { create:member }
+  let(:member) { create(:member) }
   let!(:offer) { create(:offer, member: member) }
 
   describe '.all' do
