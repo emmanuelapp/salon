@@ -15,9 +15,10 @@ RSpec.describe Dashboard::OffersController, type: :controller do
   describe 'POST #create' do
     context 'when the user is logged in' do
       login_user
+      let(:member) { create(:member) }
 
       it 'returns http 302' do
-        post :create, params: { offer: attributes_for(:offer) }
+        post :create, params: { offer: attributes_for(:offer, member_id: member.id) }
 
         expect(response).to have_http_status(302)
       end

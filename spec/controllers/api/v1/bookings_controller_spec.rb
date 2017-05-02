@@ -1,10 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::BookingsController, type: :controller do
+  let(:offer) { create(:offer) }
+
   describe 'POST #create' do
     context 'when user submits valid data' do
       subject do
-        post :create, params: { booking: attributes_for(:booking) }
+        post :create, params: { booking: attributes_for(:booking, offer_id: offer.id) }
       end
 
       it 'responds with HTTP status code 200' do
