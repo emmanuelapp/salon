@@ -5,7 +5,7 @@ gem 'devise'
 gem 'guard-rspec', require: false
 gem 'jbuilder'
 gem 'jquery-rails'
-gem 'json', '~> 2.1'
+gem 'json'
 gem 'paperclip'
 gem 'pg'
 gem 'puma'
