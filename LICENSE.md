@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2017 Georgi N. Kostov
+Copyright (c) 2017 George N. Kostov
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
