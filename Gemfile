@@ -21,6 +21,7 @@ gem 'uglifier'
 
 group :development, :test do
   gem 'byebug'
+  gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'reek'
