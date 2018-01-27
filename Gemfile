@@ -17,6 +17,7 @@ gem 'sdoc', group: :doc
 gem 'turbolinks'
 gem 'uglifier'
 gem 'rdoc', '= 3.12.1'
+gem 'bootsnap'
 
 group :development, :test do
   gem 'byebug'
