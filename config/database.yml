@@ -3,16 +3,12 @@ development:
   encoding: utf8
   database: salon_development
   pool: 5
-  username: salon_user
-  password: secretpassword
 
 test:
   adapter: postgresql
   encoding: utf8
   database: salon_test
   pool: 5
-  username: salon_user
-  password: secretpassword
 
 production:
   adapter: postgresql
