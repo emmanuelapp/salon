@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'coffee-rails'
-gem 'devise', branch: '4beeca46c45dcb2fbc7513570dbc30dcbe3cc85a', git: 'https://github.com/plataformatec/devise.git'
+gem 'devise'
 gem 'guard-rspec', require: false
 gem 'jbuilder'
 gem 'jquery-rails'
