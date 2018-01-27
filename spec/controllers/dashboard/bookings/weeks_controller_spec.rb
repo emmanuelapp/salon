@@ -7,7 +7,7 @@ RSpec.describe Dashboard::Bookings::WeeksController, type: :controller do
 
       it 'returns http success' do
         get :show, params: { booking_year: 2017, week_number: 15 }
-        expect(response).to have_http_status(:success)
+        expect(response).to have_http_status(200)
       end
     end
 

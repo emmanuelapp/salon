@@ -36,7 +36,7 @@ module Queries
              .where('OFFERS.MEMBER_ID = ?', member.id)
              .where("BOOKINGS.reserved_at::DATE >= '#{date}'")
              .where("BOOKINGS.reserved_at::DATE <= '#{date}'")
-             .pluck('to_char(reserved_at, \'HH:MM YYYY-MM-DD\')')
+             .map { |element| element.reserved_at.strftime("%H:%M %Y-%m-%d") }
     end
   end
 end

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bootsnap'
 gem 'coffee-rails'
 gem 'devise'
 gem 'guard-rspec', require: false
@@ -10,14 +11,13 @@ gem 'paperclip'
 gem 'pg', '= 0.21.0'
 gem 'puma'
 gem 'rails', '~> 5.2.0.beta2'
+gem 'rdoc', '= 3.12.1'
 gem 'react-rails'
 gem 'rubocop'
 gem 'sass-rails'
 gem 'sdoc', group: :doc
 gem 'turbolinks'
 gem 'uglifier'
-gem 'rdoc', '= 3.12.1'
-gem 'bootsnap'
 
 group :development, :test do
   gem 'byebug'

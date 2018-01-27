@@ -7,7 +7,7 @@ RSpec.describe Dashboard::OffersController, type: :controller do
 
       it 'returns http success' do
         get :new
-        expect(response).to have_http_status(:success)
+        expect(response).to have_http_status(200)
       end
     end
   end
@@ -44,7 +44,7 @@ RSpec.describe Dashboard::OffersController, type: :controller do
       it 'returns http success' do
         get :edit, params: { id: offer.id }
 
-        expect(response).to have_http_status(:success)
+        expect(response).to have_http_status(200)
       end
     end
   end

@@ -5,7 +5,7 @@ RSpec.describe BookingsController do
     subject { get :new }
 
     it 'responds with http success' do
-      expect(subject).to have_http_status(:success)
+      expect(subject).to have_http_status(200)
     end
   end
 
